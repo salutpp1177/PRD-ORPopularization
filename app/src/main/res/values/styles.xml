@@ -1,0 +1,58 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MainPageTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="BottomTitleView_Theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:colorBackground">@drawable/background_gradient_color</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+</resources>
+
+
+    <!--<TextView-->
+    <!--android:id="@+id/bottom_title_textview"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:background="@drawable/background_gradient_color"-->
+    <!--android:drawableStart="@drawable/polytech_logo_white"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:text="@string/bottom_title"-->
+    <!--android:textColor="@color/colorWhite"-->
+    <!--android:textSize="24sp"-->
+    <!--android:textStyle="bold"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintHorizontal_bias="0.0"-->
+    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--app:layout_constraintRight_toRightOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="@+id/guideline2"-->
+    <!--app:layout_constraintVertical_bias="1.0" />-->

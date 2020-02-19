@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ORGame</string>
+    <string name="bottom_title">All rights reserved.</string>
+    <string name="cooking_board_imageview">cooking_board_imageView</string>
+    <string name="task_board_text">Your Cooking Pizza Tasks</string>
+    <string name="Timer_background_imageview">Timer_background_imageView</string>
+    <string name="back2menu_button">back2menu_button</string>
+    <string name="gamepage_menu_button">menu_button</string>
+    <string name="gamepage_retry_button">retry_button</string>
+
+    <string name="title_activity_gamepage">activity_gamepage</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>

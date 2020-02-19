@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorUpsideWindowBorder">#8B4103</color>
+    <color name="colorUndersideWindowBorder">#0769A7</color>
+    <color name="colorPizzaItemBackground">#FCE8D5</color>
+    <color name="pizza0">#19A89B</color>
+    <color name="pizza1">#F69531</color>
+    <color name="pizza2">#59F8B4</color>
+    <color name="pizza3">#59E9FD</color>
+    <color name="pizza4">#D18CF0</color>
+    <color name="pizza5">#4E5AE6</color>
+    <color name="pizza6">#A7AAAC</color>
+    <color name="pizza7">#F281A8</color>
+    <color name="pizza8">#F82828</color>
+    <color name="pizza9">#FCDD5E</color>
+
+    <color name="black_overlay">#66000000</color>
+
+</resources>
