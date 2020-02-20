@@ -6,8 +6,8 @@ import com.example.orgame.R;
 
 public class Pizza {
 
-    public static String[] color_list= { "#19A89B", "#F69531", "#59F8B4", "#59E9FD", "#D18CF0", "#4E5AE6", "#A7AAAC",
-            "#F281A8", "#F82828", "#FCDC5E"};
+    public static String[] color_list= { "#F69531", "#59F8B4", "#59E9FD", "#D18CF0", "#4E5AE6", "#A7AAAC",
+            "#F281A8", "#F82828", "#FCDC5E", "#19A89B" };
 
     private int id; /** pizza's Id */
     private String name; /** pizza's name, form as Pizza?(id) */

@@ -5,6 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorTransparent">#00000000</color>
     <color name="colorUpsideWindowBorder">#8B4103</color>
     <color name="colorUndersideWindowBorder">#0769A7</color>
     <color name="colorPizzaItemBackground">#FCE8D5</color>

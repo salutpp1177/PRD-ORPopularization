@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
 
     Map<Integer, Pizza> pizzaMap;
     RecyclerView recyclerView;
+    PizzaItemsAdapter pizzaItemsAdapter;
     View childView;
 
 
@@ -38,10 +39,10 @@ public class MainActivity extends Activity {
         this.pizzaMap = Algorithm.initAllPizza();
         // set up recyclerView
         this.recyclerView = findViewById(R.id.window_above_layout);
-        RecyclerView.LayoutManager recyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
-        this.recyclerView.setLayoutManager(recyclerViewLayoutManager);
+//        RecyclerView.LayoutManager recyclerViewLayoutManager = new LinearLayoutManager(getApplicationContext());
+//        this.recyclerView.setLayoutManager(recyclerViewLayoutManager);
         // set up adapter
-        PizzaItemsAdapter pizzaItemsAdapter = new PizzaItemsAdapter(pizzaMap);
+        this.pizzaItemsAdapter = new PizzaItemsAdapter(pizzaMap);
         // connect adapter and view
         LinearLayoutManager horizontalLayout = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
         this.recyclerView.setLayoutManager(horizontalLayout);

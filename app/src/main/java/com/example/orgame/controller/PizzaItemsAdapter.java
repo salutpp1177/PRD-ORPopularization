@@ -1,12 +1,6 @@
 package com.example.orgame.controller;
 
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -25,7 +18,9 @@ import com.example.orgame.model.Pizza;
 import java.util.Map;
 
 public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.MyViewHolder> {
+
     private Map<Integer,Pizza> pizzaMap;
+    private OnItemClickListener onItemClickListener = null;
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         ConstraintLayout constraintLayout;
@@ -34,6 +29,8 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         TextView pizzaBakingTime;
         ImageView checkIcon;
         ImageView pizzaBorder;
+//        ImageView preparingPizzaIcon;
+//        ImageView ovenIcon;
 
         MyViewHolder(View view) {
             super(view);
@@ -42,6 +39,8 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
             pizzaBakingTime = (TextView)view.findViewById(R.id.pizzaBakingTime);
             checkIcon = (ImageView)view.findViewById(R.id.checkIcon);
             pizzaBorder = (ImageView)view.findViewById(R.id.pizzaBorder);
+//            preparingPizzaIcon = (ImageView)view.findViewById(R.id.preparingPizzaIcon);
+//            ovenIcon = (ImageView)view.findViewById(R.id.ovenIcon);
         }
 
     }
@@ -52,7 +51,7 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pizza, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pizza_items, parent,false);
         MyViewHolder holder = new MyViewHolder(view);
         return holder;
 //        return null;
@@ -66,22 +65,46 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         //set item border color
         GradientDrawable drawable = new GradientDrawable();
         drawable.setCornerRadius(25);
-        drawable.setStroke(15, pizza.getColor());
+        drawable.setStroke(10, pizza.getColor());
         holder.itemView.setBackground(drawable);
         //set item's data
         //set prepraing time rectangle color and text
         GradientDrawable rectDrawable1 =  (GradientDrawable)holder.pizzaPreparingTime.getBackground();
         rectDrawable1.setColor(pizza.getColor());
-        holder.pizzaPreparingTime.setText(Integer.toString(pizza.getPreparingTime()) + " mins");
+        String preparingtimeString, bakingtimeString;
+        preparingtimeString = new String(Integer.toString(pizza.getPreparingTime())+"\n");
+        bakingtimeString = new String(Integer.toString(pizza.getBakingTime()) + "\n");
+        if (pizza.getPreparingTime() <= 1 ) {
+            preparingtimeString += "min";
+        } else {
+            preparingtimeString += "mins";
+        }
+        holder.pizzaPreparingTime.setText(preparingtimeString);
+
         //set baking time rectangle color and text
         GradientDrawable rectDrawable2 =  (GradientDrawable)holder.pizzaBakingTime.getBackground();
         rectDrawable2.setColor(pizza.getColor());
-        holder.pizzaBakingTime.setText(Integer.toString(pizza.getBakingTime()) + " mins");
+        if (pizza.getBakingTime() <= 1 ) {
+            bakingtimeString += "min";
+        } else {
+            bakingtimeString += "mins";
+        }
+        holder.pizzaBakingTime.setText(bakingtimeString);
+
         // set checkIcon invisible
         holder.checkIcon.setVisibility(View.INVISIBLE);
+
         // set pizza icon color
         GradientDrawable ovalDrawable =  (GradientDrawable)holder.pizzaBorder.getBackground();
         ovalDrawable.setColor(pizza.getColor());
+
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onItemClickListener.onItemClick(holder.itemView, position);
+//            }
+//        });
+
     }
 
     @Override
@@ -104,5 +127,13 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
     }
 
 
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        onItemClickListener = listener;
+    }
+
+
+    public interface OnItemClickListener{
+        void onItemClick(View view, int position);
+    }
 
 }

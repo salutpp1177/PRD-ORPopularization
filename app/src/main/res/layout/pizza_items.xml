@@ -5,13 +5,12 @@
     android:id="@+id/pizza_cardview"
     android:layout_width="150dp"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
-    android:layout_marginStart="20dp"
+    android:layout_marginStart="15dp"
     android:layout_marginLeft="10dp"
-    android:layout_marginTop="15dp"
-    android:layout_marginEnd="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="15dp"
     android:layout_marginRight="10dp"
-    android:layout_marginBottom="15dp"
+    android:layout_marginBottom="10dp"
     android:orientation="vertical"
     card_view:cardCornerRadius="25dp"
     card_view:cardElevation="0dp"
@@ -24,12 +23,13 @@
 
         <TextView
             android:id="@+id/pizzaPreparingTime"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+            android:layout_gravity="center"
             android:background="@drawable/rectangle_in_pizza_item"
-            android:gravity="right|center_vertical"
-            android:textColor="#000000"
+            android:gravity="center|right"
+            android:paddingRight="2dp"
+            android:textColor="@color/colorBlack"
             android:textSize="20sp"
             android:textStyle="bold"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline17"
@@ -43,8 +43,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rectangle_in_pizza_item"
-            android:gravity="right|center_vertical"
-            android:textColor="#000000"
+            android:gravity="center|right"
+            android:paddingRight="2dp"
+            android:textColor="@color/colorBlack"
             android:textSize="20sp"
             android:textStyle="bold"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline18"
@@ -58,6 +59,7 @@
             android:id="@+id/checkIcon"
             android:layout_width="87dp"
             android:layout_height="99dp"
+            android:contentDescription="TODO"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.83"
@@ -71,6 +73,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/oval_pizza_border"
+            android:contentDescription="TODO"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline14"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
@@ -86,7 +89,8 @@
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="@+id/guideline14"
-            card_view:layout_constraintVertical_bias="0.13" />
+            card_view:layout_constraintVertical_bias="0.13"
+            tools:targetApi="m" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline14"
@@ -100,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            card_view:layout_constraintGuide_percent="0.20" />
+            card_view:layout_constraintGuide_percent="0.16" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline16"
@@ -114,34 +118,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            card_view:layout_constraintGuide_percent="0.50" />
+            card_view:layout_constraintGuide_percent="0.53" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            card_view:layout_constraintGuide_percent="0.75" />
+            card_view:layout_constraintGuide_percent="0.81" />
 
         <ImageView
             android:id="@+id/preparingPizzaIcon"
             android:layout_width="0dp"
-            android:layout_height="54dp"
+            android:layout_height="48dp"
+            android:background="@drawable/preparing_pizza_icon"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline17"
             card_view:layout_constraintEnd_toStartOf="@+id/guideline16"
             card_view:layout_constraintStart_toStartOf="@+id/guideline15"
-            card_view:layout_constraintTop_toTopOf="@+id/guideline17"
-            card_view:srcCompat="@drawable/preparing_pizza_icon" />
+            card_view:layout_constraintTop_toTopOf="@+id/guideline17" />
 
         <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="0dp"
-            android:layout_height="93dp"
+            android:id="@+id/ovenIcon"
+            android:layout_width="44dp"
+            android:layout_height="48dp"
+            android:background="@drawable/oven_icon"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline18"
+            card_view:layout_constraintDimensionRatio="w,1:1"
             card_view:layout_constraintEnd_toStartOf="@+id/guideline16"
             card_view:layout_constraintStart_toStartOf="@+id/guideline15"
-            card_view:layout_constraintTop_toTopOf="@+id/guideline18"
-            card_view:srcCompat="@drawable/oven_icon" />
+            card_view:layout_constraintTop_toTopOf="@+id/guideline18" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -3,9 +3,6 @@
 
     <size
         android:width="100dp"
-        android:height="65dp"/>
-    <stroke
-        android:width="2dp"
-        android:color="@color/colorBlack"/>
+        android:height="55dp"/>
 
 </shape>

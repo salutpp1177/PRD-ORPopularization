@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ORGame</string>
+    <string name="app_name">Hello, OR!</string>
     <string name="bottom_title">All rights reserved.</string>
     <string name="cooking_board_imageview">cooking_board_imageView</string>
     <string name="task_board_text">Your Cooking Pizza Tasks</string>
