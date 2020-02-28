@@ -2,8 +2,6 @@ package com.example.orgame.model;
 
 import android.graphics.Color;
 
-import com.example.orgame.R;
-
 public class Pizza {
 
     public static String[] color_list= { "#F69531", "#59F8B4", "#59E9FD", "#D18CF0", "#4E5AE6", "#A7AAAC",
@@ -11,12 +9,11 @@ public class Pizza {
 
     private int id; /** pizza's Id */
     private String name; /** pizza's name, form as Pizza?(id) */
-    private int preselectionOrder; /** the order of pizza in preselection */
-    private int flowshopOrder; /** the order of pizza in flowshop */
+    private int preselectionPosition; /** the position of pizza in preselection */
+    private int flowshopPositon; /** the position of pizza in flowshop */
     private int preparingTime; /** the preparing time of the pizza, unity in  minutes */
-    private int bakingTime;
-
-    /**  the baking time of the pizza, unity in minutes */
+    private int bakingTime; /**  the baking time of the pizza, unity in minutes */
+    private int johnsonPosition; /** the position of pizza by Johnson Algorithm's solution */
     private int color; /** the color of the pizza */
 
     /**
@@ -34,8 +31,8 @@ public class Pizza {
         this.id = id;
         this.preparingTime = preparingTime;
         this.bakingTime = bakingTime;
-        this.preselectionOrder = id;
-        this.flowshopOrder = -1;
+        this.preselectionPosition = id;
+        this.flowshopPositon = -1;
         this.color = Color.parseColor(color_list[id]);
     }
 
@@ -61,12 +58,12 @@ public class Pizza {
         this.name = name;
     }
 
-    public int getPreselectionOrder() {
-        return preselectionOrder;
+    public int getPreselectionPosition() {
+        return preselectionPosition;
     }
 
-    public void setPreselectionOrder(int preselectionOrder) {
-        this.preselectionOrder = preselectionOrder;
+    public void setPreselectionPosition(int preselectionPosition) {
+        this.preselectionPosition = preselectionPosition;
     }
 
     public int getColor() {
@@ -78,12 +75,12 @@ public class Pizza {
     }
 
 
-    public int getFlowshopOrder() {
-        return flowshopOrder;
+    public int getFlowshopPositon() {
+        return flowshopPositon;
     }
 
-    public void setFlowshopOrder(int flowshopOrder) {
-        this.flowshopOrder = flowshopOrder;
+    public void setFlowshopPositon(int flowshopPositon) {
+        this.flowshopPositon = flowshopPositon;
     }
 
     public int getPreparingTime() {
@@ -100,6 +97,14 @@ public class Pizza {
 
     public void setBakingTime(int bakingTime) {
         this.bakingTime = bakingTime;
+    }
+
+    public int getJohnsonPosition() {
+        return johnsonPosition;
+    }
+
+    public void setJohnsonPosition(int johnsonPosition) {
+        this.johnsonPosition = johnsonPosition;
     }
 
 

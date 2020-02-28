@@ -1,6 +1,10 @@
 package com.example.orgame.controller;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,15 +26,23 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
     private Map<Integer,Pizza> pizzaMap;
     private OnItemClickListener onItemClickListener = null;
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    public interface OnItemClickListener{
+        void onItemClick(View view, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        onItemClickListener = listener;
+    }
+
+
+
+    static class MyViewHolder extends RecyclerView.ViewHolder {
         ConstraintLayout constraintLayout;
         ImageView pizzaIcon;
         TextView pizzaPreparingTime;
         TextView pizzaBakingTime;
         ImageView checkIcon;
         ImageView pizzaBorder;
-//        ImageView preparingPizzaIcon;
-//        ImageView ovenIcon;
 
         MyViewHolder(View view) {
             super(view);
@@ -39,8 +51,6 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
             pizzaBakingTime = (TextView)view.findViewById(R.id.pizzaBakingTime);
             checkIcon = (ImageView)view.findViewById(R.id.checkIcon);
             pizzaBorder = (ImageView)view.findViewById(R.id.pizzaBorder);
-//            preparingPizzaIcon = (ImageView)view.findViewById(R.id.preparingPizzaIcon);
-//            ovenIcon = (ImageView)view.findViewById(R.id.ovenIcon);
         }
 
     }
@@ -54,18 +64,18 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pizza_items, parent,false);
         MyViewHolder holder = new MyViewHolder(view);
         return holder;
-//        return null;
     }
 
     @Override
     @NonNull
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         //get pizza by position
         Pizza pizza = pizzaMap.get(position);
         //set item border color
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setCornerRadius(25);
-        drawable.setStroke(10, pizza.getColor());
+//        GradientDrawable drawable = new GradientDrawable();
+//        drawable.setCornerRadius(25);
+//        drawable.setStroke(10, pizza.getColor());
+        Drawable drawable = getSelectorDrawable(pizza.getColor());
         holder.itemView.setBackground(drawable);
         //set item's data
         //set prepraing time rectangle color and text
@@ -98,6 +108,15 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         GradientDrawable ovalDrawable =  (GradientDrawable)holder.pizzaBorder.getBackground();
         ovalDrawable.setColor(pizza.getColor());
 
+        if (onItemClickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onItemClickListener.onItemClick(view, position);
+                }
+            });
+        }
+
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -126,14 +145,26 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         return resId;
     }
 
+    /** 获取一个selector */
+    public Drawable getSelectorDrawable(int color) {
+        // normal background
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setCornerRadius(25);
+        drawable.setStroke(10, color);
+        drawable.setColor(Color.parseColor("#FFFFFF"));
 
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        onItemClickListener = listener;
+        // background after a click
+        GradientDrawable drawableClick = new GradientDrawable();
+        drawableClick.setCornerRadius(25);
+        drawableClick.setStroke(10, color);
+        drawableClick.setColor(Color.parseColor("#FCE8D5"));
+
+        StateListDrawable sld = new StateListDrawable();
+        sld.addState(new int[] { -android.R.attr.state_pressed }, drawable);
+        sld.addState(new int[] { android.R.attr.state_pressed }, drawableClick);
+        return sld;
     }
 
 
-    public interface OnItemClickListener{
-        void onItemClick(View view, int position);
-    }
 
 }

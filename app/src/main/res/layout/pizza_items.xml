@@ -11,6 +11,7 @@
     android:layout_marginEnd="15dp"
     android:layout_marginRight="10dp"
     android:layout_marginBottom="10dp"
+    android:clickable="true"
     android:orientation="vertical"
     card_view:cardCornerRadius="25dp"
     card_view:cardElevation="0dp"
@@ -54,19 +55,6 @@
             card_view:layout_constraintTop_toTopOf="@+id/guideline18"
             card_view:layout_constraintVertical_bias="0.75" />
 
-
-        <ImageView
-            android:id="@+id/checkIcon"
-            android:layout_width="87dp"
-            android:layout_height="99dp"
-            android:contentDescription="TODO"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.83"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.951"
-            card_view:srcCompat="@drawable/check" />
 
         <ImageView
             android:id="@+id/pizzaBorder"
@@ -147,6 +135,19 @@
             card_view:layout_constraintEnd_toStartOf="@+id/guideline16"
             card_view:layout_constraintStart_toStartOf="@+id/guideline15"
             card_view:layout_constraintTop_toTopOf="@+id/guideline18" />
+
+        <ImageView
+            android:id="@+id/checkIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/check"
+            android:contentDescription="TODO"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.968"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.983" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

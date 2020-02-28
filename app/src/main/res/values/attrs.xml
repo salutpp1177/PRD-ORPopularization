@@ -8,5 +8,18 @@
         <attr name="metaButtonBarStyle" format="reference" />
         <attr name="metaButtonBarButtonStyle" format="reference" />
     </declare-styleable>
+    <declare-styleable name="TimeRulerProgressBar">
+        <attr name="reachColor" format="reference|color" />
+        <attr name="unreachColor" format="reference|color"/>
+        <attr name="reachHeight" format="dimension" />
+        <attr name="unreachHeight" format="dimension" />
+        <attr name="textColor" format="reference|color" />
+        <attr name="reachSize" format="dimension" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textOffset" format="dimension" />
+        <attr name="textOffsetLine" format="dimension" />
+        <attr name="scaleBackground" format="reference|color" />
+        <attr name="progressBackground" format="reference|color"/>
+    </declare-styleable>
 
 </resources>
