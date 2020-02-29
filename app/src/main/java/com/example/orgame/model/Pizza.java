@@ -15,6 +15,7 @@ public class Pizza {
     private int bakingTime; /**  the baking time of the pizza, unity in minutes */
     private int johnsonPosition; /** the position of pizza by Johnson Algorithm's solution */
     private int color; /** the color of the pizza */
+    private boolean isChosen; /** tell whether the pizza is chosen or not */
 
     /**
      * constructor
@@ -34,6 +35,7 @@ public class Pizza {
         this.preselectionPosition = id;
         this.flowshopPositon = -1;
         this.color = Color.parseColor(color_list[id]);
+        this.isChosen = false;
     }
 
 
@@ -107,5 +109,11 @@ public class Pizza {
         this.johnsonPosition = johnsonPosition;
     }
 
+    public boolean getIsChosen() {
+        return isChosen;
+    }
 
+    public void setIsChosen(boolean isChosen) {
+        this.isChosen = isChosen;
+    }
 }

@@ -24,16 +24,16 @@ import java.util.Map;
 public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.MyViewHolder> {
 
     private Map<Integer,Pizza> pizzaMap;
-    private OnItemClickListener onItemClickListener = null;
-
-    public interface OnItemClickListener{
-        void onItemClick(View view, int position);
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        onItemClickListener = listener;
-    }
-
+//    private OnItemClickListener onItemClickListener;
+//
+//    public interface OnItemClickListener{
+//        void onItemClick(View view, int position);
+//    }
+//
+//    public void setOnItemClickListener(OnItemClickListener listener) {
+//        onItemClickListener = listener;
+//    }
+//
 
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -108,14 +108,32 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         GradientDrawable ovalDrawable =  (GradientDrawable)holder.pizzaBorder.getBackground();
         ovalDrawable.setColor(pizza.getColor());
 
-        if (onItemClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    onItemClickListener.onItemClick(view, position);
+//                    onItemClickListener.onItemClick(view, position);
+                    if(pizzaMap.get(position).getIsChosen()) {
+                            view.findViewById(R.id.checkIcon).setVisibility(View.INVISIBLE);
+                            pizzaMap.get(position).setIsChosen(false);
+                    } else {
+                            view.findViewById(R.id.checkIcon).setVisibility(View.VISIBLE);
+                            pizzaMap.get(position).setIsChosen(true);
+                    }
+
                 }
             });
-        }
+        //        pizzaItemsAdapter.setOnItemClickListener(new PizzaItemsAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(View view, int position) {
+//                Toast.makeText(MainActivity.this, pizzaMap.get(position).getName(),Toast.LENGTH_LONG).show();
+//                if(view.findViewById(R.id.checkIcon).getVisibility() == View.VISIBLE) {
+//                    view.findViewById(R.id.checkIcon).setVisibility(View.INVISIBLE);
+//                } else if(view.findViewById(R.id.checkIcon).getVisibility() == View.INVISIBLE) {
+//                    view.findViewById(R.id.checkIcon).setVisibility(View.VISIBLE);
+//                }
+//
+//            }
+//        });
 
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -165,6 +183,11 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         return sld;
     }
 
+    public Map<Integer, Pizza> getPizzaMap() {
+        return pizzaMap;
+    }
 
-
+    public void setPizzaMap(Map<Integer, Pizza> pizzaMap) {
+        this.pizzaMap = pizzaMap;
+    }
 }

@@ -14,6 +14,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -24,7 +25,7 @@ import com.example.orgame.controller.PizzaViewModel;
 import com.example.orgame.model.Pizza;
 import java.util.Map;
 
-public class MainActivity extends Activity {
+public class MainActivity extends  AppCompatActivity {
 
 //    ViewModelStore viewModelStore = new ViewModelStore();
 //    @NonNull
@@ -47,48 +48,71 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         // create the page
         super.onCreate(savedInstanceState);
-        // full screen
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         // set up total canvas
         setContentView(R.layout.activity_main);
+        // full screen
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
 
         // set up the chosen pizza window
-        Log.d("Step 1 :", "onCreate: chosen pizza window set-up ");
+        Log.d("onCreate: :", "chosen pizza window set-up ");
+        // initialize ViewModel
+        this.pizzaViewModel = new ViewModelProvider(this).get(PizzaViewModel.class);
+
         // initialize pizza's data
-        this.pizzaMap = Algorithm.initAllPizza();
+        this.pizzaMap = pizzaViewModel.getPizzaMap().getValue();
+
         // set up recyclerView
         this.recyclerView = findViewById(R.id.window_above_layout);
+        this.recyclerView.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
 
-        //set up ViewModel
-//        this.pizzaViewModel = new ViewModelProvider(this).get(PizzaViewModel.class);
-//        pizzaViewModel.getPizzaMap().observe(this, new Observer<Map<Integer, Pizza>>() {
+        // set up adapter
+        this.pizzaItemsAdapter = new PizzaItemsAdapter(pizzaMap);
+//        pizzaItemsAdapter.setOnItemClickListener(new PizzaItemsAdapter.OnItemClickListener() {
 //            @Override
-//            public void onChanged(Map<Integer, Pizza> map) {
+//            public void onItemClick(View view, int position) {
+//                Toast.makeText(MainActivity.this, pizzaMap.get(position).getName(),Toast.LENGTH_LONG).show();
+//                if(view.findViewById(R.id.checkIcon).getVisibility() == View.VISIBLE) {
+//                    view.findViewById(R.id.checkIcon).setVisibility(View.INVISIBLE);
+//                } else if(view.findViewById(R.id.checkIcon).getVisibility() == View.INVISIBLE) {
+//                    view.findViewById(R.id.checkIcon).setVisibility(View.VISIBLE);
+//                }
 //
 //            }
 //        });
-        // set up adapter
-        this.pizzaItemsAdapter = new PizzaItemsAdapter(pizzaMap);
-        pizzaItemsAdapter.setOnItemClickListener(new PizzaItemsAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Toast.makeText(MainActivity.this, pizzaMap.get(position).getName(),Toast.LENGTH_LONG).show();
-                if(view.findViewById(R.id.checkIcon).getVisibility() == View.VISIBLE) {
-                    view.findViewById(R.id.checkIcon).setVisibility(View.INVISIBLE);
-                } else if(view.findViewById(R.id.checkIcon).getVisibility() == View.INVISIBLE) {
-                    view.findViewById(R.id.checkIcon).setVisibility(View.VISIBLE);
-                }
 
-            }
-        });
         // connect adapter and view
         LinearLayoutManager horizontalLayout = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
         this.recyclerView.setLayoutManager(horizontalLayout);
         this.recyclerView.setAdapter(pizzaItemsAdapter);
+
+        // set up ViewModel
+        pizzaViewModel.getPizzaMap().observe(this, new Observer<Map<Integer, Pizza>>() {
+            @Override
+            public void onChanged(Map<Integer, Pizza> map) {
+                pizzaItemsAdapter.setPizzaMap(map);
+            }
+        });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("onStart :", "hello, I'm onStart  ");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("onPause:", "hello, I'm onPause   ");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("onStop:", "hello, I'm onStop   ");
+    }
 
     public Map<Integer, Pizza> getPizzaMap() {
         return pizzaMap;
