@@ -1,7 +1,6 @@
-package com.example.orgame.controller;
+package com.example.orgame.adapter;
 
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
@@ -19,22 +18,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.orgame.R;
 import com.example.orgame.model.Pizza;
 
-import java.util.Map;
+import java.util.Collections;
+import java.util.List;
 
 public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.MyViewHolder> {
 
-    private Map<Integer,Pizza> pizzaMap;
-//    private OnItemClickListener onItemClickListener;
-//
-//    public interface OnItemClickListener{
-//        void onItemClick(View view, int position);
-//    }
-//
-//    public void setOnItemClickListener(OnItemClickListener listener) {
-//        onItemClickListener = listener;
-//    }
-//
-
+//    private Map<Integer,Pizza> pizzaMap;
+    private List<Pizza> pizzaList;
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
         ConstraintLayout constraintLayout;
@@ -55,8 +45,27 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
 
     }
 
-    public PizzaItemsAdapter(Map<Integer,Pizza> map) {
-        this.pizzaMap = map;
+    private OnItemClickListener onItemClickListener = null;
+
+    /*暴露给外部的方法*/
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        onItemClickListener = listener;
+    }
+
+    public interface OnItemClickListener{
+        void onItemClick(View view, int position);
+    }
+
+//    public PizzaItemsAdapter(Map<Integer,Pizza> map) {
+//        this.pizzaMap = map;
+//    }
+
+    public PizzaItemsAdapter() {
+
+    }
+
+    public PizzaItemsAdapter(List<Pizza> pizzaList) {
+        this.pizzaList = pizzaList;
     }
 
     @Override
@@ -68,13 +77,11 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
 
     @Override
     @NonNull
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         //get pizza by position
-        Pizza pizza = pizzaMap.get(position);
+//        Pizza pizza = pizzaMap.get(position);
+        Pizza pizza = pizzaList.get(position);
         //set item border color
-//        GradientDrawable drawable = new GradientDrawable();
-//        drawable.setCornerRadius(25);
-//        drawable.setStroke(10, pizza.getColor());
         Drawable drawable = getSelectorDrawable(pizza.getColor());
         holder.itemView.setBackground(drawable);
         //set item's data
@@ -102,68 +109,50 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         holder.pizzaBakingTime.setText(bakingtimeString);
 
         // set checkIcon invisible
-        holder.checkIcon.setVisibility(View.INVISIBLE);
+        if(pizza.getIsChosen()) {
+            holder.checkIcon.setVisibility(View.VISIBLE);
+        } else {
+            holder.checkIcon.setVisibility(View.INVISIBLE);
+        }
+
 
         // set pizza icon color
         GradientDrawable ovalDrawable =  (GradientDrawable)holder.pizzaBorder.getBackground();
         ovalDrawable.setColor(pizza.getColor());
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-//                    onItemClickListener.onItemClick(view, position);
-                    if(pizzaMap.get(position).getIsChosen()) {
-                            view.findViewById(R.id.checkIcon).setVisibility(View.INVISIBLE);
-                            pizzaMap.get(position).setIsChosen(false);
-                    } else {
-                            view.findViewById(R.id.checkIcon).setVisibility(View.VISIBLE);
-                            pizzaMap.get(position).setIsChosen(true);
-                    }
-
-                }
-            });
-        //        pizzaItemsAdapter.setOnItemClickListener(new PizzaItemsAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(View view, int position) {
-//                Toast.makeText(MainActivity.this, pizzaMap.get(position).getName(),Toast.LENGTH_LONG).show();
-//                if(view.findViewById(R.id.checkIcon).getVisibility() == View.VISIBLE) {
-//                    view.findViewById(R.id.checkIcon).setVisibility(View.INVISIBLE);
-//                } else if(view.findViewById(R.id.checkIcon).getVisibility() == View.INVISIBLE) {
-//                    view.findViewById(R.id.checkIcon).setVisibility(View.VISIBLE);
-//                }
+//            holder.itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+////                    onItemClickListener.onItemClick(view, position);
+//                    if(pizzaList.get(position).getIsChosen()) {
+////                            view.findViewById(R.id.checkIcon).setVisibility(View.INVISIBLE);
+//                            pizzaList.get(position).setIsChosen(false);
+//                    } else {
+////                            view.findViewById(R.id.checkIcon).setVisibility(View.VISIBLE);
+//                            pizzaList.get(position).setIsChosen(true);
+//                    }
 //
-//            }
-//        });
-
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onItemClickListener.onItemClick(holder.itemView, position);
-//            }
-//        });
+//                }
+//            });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickListener.onItemClick(holder.itemView, position);
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return pizzaMap.size();
+//        return pizzaMap.size();
+        return pizzaList.size();
     }
 
 
-    public int getImageResourceId(String name) {
-        R.drawable drawables=new R.drawable();
-        int resId=0x7f02000b;
-        try {
-            java.lang.reflect.Field field=R.drawable.class.getField(name);
-            resId=(Integer)field.get(drawables);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return resId;
-    }
-
-    /** 获取一个selector */
+    /**
+     * create a selector drawable to reach the effect of changing the item's background color after clicking
+     */
     public Drawable getSelectorDrawable(int color) {
         // normal background
         GradientDrawable drawable = new GradientDrawable();
@@ -183,11 +172,20 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         return sld;
     }
 
-    public Map<Integer, Pizza> getPizzaMap() {
-        return pizzaMap;
+
+    public void onMove(int fromPosition, int toPosition) {
+        //对原数据进行移动
+        Collections.swap(pizzaList, fromPosition, toPosition);
+        //通知数据移动
+        notifyItemMoved(fromPosition, toPosition);
     }
 
-    public void setPizzaMap(Map<Integer, Pizza> pizzaMap) {
-        this.pizzaMap = pizzaMap;
+
+    public List<Pizza> getPizzaList() {
+        return pizzaList;
+    }
+
+    public void setPizzaList(List<Pizza> pizzaList) {
+        this.pizzaList = pizzaList;
     }
 }

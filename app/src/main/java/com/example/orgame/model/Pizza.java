@@ -2,7 +2,9 @@ package com.example.orgame.model;
 
 import android.graphics.Color;
 
-public class Pizza {
+import androidx.annotation.NonNull;
+
+public class Pizza implements Cloneable{
 
     public static String[] color_list= { "#F69531", "#59F8B4", "#59E9FD", "#D18CF0", "#4E5AE6", "#A7AAAC",
             "#F281A8", "#F82828", "#FCDC5E", "#19A89B" };
@@ -29,7 +31,7 @@ public class Pizza {
     }
 
     public Pizza(int id, int preparingTime, int bakingTime) {
-        this.id = id;
+        this.setId(id);
         this.preparingTime = preparingTime;
         this.bakingTime = bakingTime;
         this.preselectionPosition = id;
@@ -115,5 +117,24 @@ public class Pizza {
 
     public void setIsChosen(boolean isChosen) {
         this.isChosen = isChosen;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        String str = new String(this.name);
+        str += this.isChosen;
+        return str;
+    }
+
+    @NonNull
+    @Override
+    public Object clone() {
+        try{
+            Pizza pizza = (Pizza) super.clone();
+            return pizza;
+        }catch (CloneNotSupportedException e){
+            return null;
+        }
     }
 }
