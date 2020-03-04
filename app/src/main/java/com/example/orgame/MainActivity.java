@@ -107,7 +107,10 @@ public class MainActivity extends AppCompatActivity {
                 pizzasListViewModel.updatePizzaList(pizza);
                 timerViewModel.updateUsedTotalTime(pizzaList);
                 pizzaItemsAdapter.notifyDataSetChanged();
-                Log.d("RecyclerView", pizza.getName() + ", " + "onItemClick: " + "Is chosen: "+pizza.getIsChosen());
+                String str = new String(pizza.getName() + ", " + "onItemClick: " + "Is chosen: "+pizza.getIsChosen() + ", position "+pizza.getPreselectionPosition());
+                Toast a = Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG);
+//                a.setMargin();
+                Log.d("RecyclerView", str);
 
             }
         });
@@ -134,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
                         Collections.swap(pizzaList, srcPosition, targetPosition);
                         // 更新UI中的Item的位置，主要是给用户看到交互效果
                         pizzaItemsAdapter.notifyItemMoved(srcPosition, targetPosition);
+//                        pizzaItemsAdapter.notifyDataSetChanged();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -150,6 +154,8 @@ public class MainActivity extends AppCompatActivity {
         try {
             //关联recyclerView，一个helper对象只能对应一个recyclerView
             itemTouchHelper.attachToRecyclerView(recyclerView);
+            String logr = new String();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

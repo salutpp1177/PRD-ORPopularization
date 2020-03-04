@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,8 +80,9 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
     @NonNull
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         //get pizza by position
-//        Pizza pizza = pizzaMap.get(position);
         Pizza pizza = pizzaList.get(position);
+        // update pizza's position in preselection list (upside window)
+//        pizza.setPreselectionPosition(position);
         //set item border color
         Drawable drawable = getSelectorDrawable(pizza.getColor());
         holder.itemView.setBackground(drawable);
@@ -120,20 +122,6 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         GradientDrawable ovalDrawable =  (GradientDrawable)holder.pizzaBorder.getBackground();
         ovalDrawable.setColor(pizza.getColor());
 
-//            holder.itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-////                    onItemClickListener.onItemClick(view, position);
-//                    if(pizzaList.get(position).getIsChosen()) {
-////                            view.findViewById(R.id.checkIcon).setVisibility(View.INVISIBLE);
-//                            pizzaList.get(position).setIsChosen(false);
-//                    } else {
-////                            view.findViewById(R.id.checkIcon).setVisibility(View.VISIBLE);
-//                            pizzaList.get(position).setIsChosen(true);
-//                    }
-//
-//                }
-//            });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,13 +160,6 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         return sld;
     }
 
-
-    public void onMove(int fromPosition, int toPosition) {
-        //对原数据进行移动
-        Collections.swap(pizzaList, fromPosition, toPosition);
-        //通知数据移动
-        notifyItemMoved(fromPosition, toPosition);
-    }
 
 
     public List<Pizza> getPizzaList() {

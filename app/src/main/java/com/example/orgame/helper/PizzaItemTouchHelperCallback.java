@@ -72,20 +72,8 @@ public class PizzaItemTouchHelperCallback extends ItemTouchHelper.Callback {
     public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
         RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
         if (layoutManager instanceof LinearLayoutManager) {
-            LinearLayoutManager linearLayoutManager = (LinearLayoutManager) layoutManager;
-            int orientation = linearLayoutManager.getOrientation();
-            int dragFlags = 0;
+            int dragFlags = ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
             int swipeFlags = 0;
-
-            // If the layout is horizontal
-            if (orientation == LinearLayoutManager.HORIZONTAL) {
-                swipeFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
-                dragFlags = ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
-            } else if (orientation == LinearLayoutManager.VERTICAL) {
-                // If it is a vertical layout, it is equivalent to ListView
-                dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
-                swipeFlags = ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
-            }
             return makeMovementFlags(dragFlags, swipeFlags);
         }
         return 0;
@@ -129,23 +117,20 @@ public class PizzaItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @Override
     public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
         super.clearView(recyclerView, viewHolder);
-        viewHolder.itemView.setBackgroundColor(viewHolder.itemView.getContext().getResources()
-                .getColor(android.R.color.white));
-        viewHolder.itemView.setAlpha(1);
-        viewHolder.itemView.setScaleY(1);
+        recyclerView.getAdapter().notifyDataSetChanged();
     }
 
-    @Override
-    public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView,
-                            @NonNull RecyclerView.ViewHolder viewHolder,
-                            float dX, float dY, int actionState, boolean isCurrentlyActive) {
-        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-        if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
-            float value = 1 - Math.abs(dX) / viewHolder.itemView.getWidth();
-            viewHolder.itemView.setAlpha(value);
-            viewHolder.itemView.setScaleY(value);
-        }
-    }
+//    @Override
+//    public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView,
+//                            @NonNull RecyclerView.ViewHolder viewHolder,
+//                            float dX, float dY, int actionState, boolean isCurrentlyActive) {
+//        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+//        if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+//            float value = 1 - Math.abs(dX) / viewHolder.itemView.getWidth();
+//            viewHolder.itemView.setAlpha(value);
+//            viewHolder.itemView.setScaleY(value);
+//        }
+//    }
 
 
 
