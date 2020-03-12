@@ -117,20 +117,10 @@ public class PizzaItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @Override
     public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
         super.clearView(recyclerView, viewHolder);
-        recyclerView.getAdapter().notifyDataSetChanged();
+        onItemTouchCallbackListener.clearView();
+
     }
 
-//    @Override
-//    public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView,
-//                            @NonNull RecyclerView.ViewHolder viewHolder,
-//                            float dX, float dY, int actionState, boolean isCurrentlyActive) {
-//        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-//        if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
-//            float value = 1 - Math.abs(dX) / viewHolder.itemView.getWidth();
-//            viewHolder.itemView.setAlpha(value);
-//            viewHolder.itemView.setScaleY(value);
-//        }
-//    }
 
 
 

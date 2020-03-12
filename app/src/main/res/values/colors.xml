@@ -19,6 +19,7 @@
     <color name="pizza7">#F281A8</color>
     <color name="pizza8">#F82828</color>
     <color name="pizza9">#FCDD5E</color>
+    <color name="selectedCardBorder">#1592E6</color>
 
     <color name="black_overlay">#66000000</color>
 

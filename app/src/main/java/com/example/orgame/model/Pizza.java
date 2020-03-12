@@ -27,7 +27,6 @@ public class Pizza implements Cloneable{
 
     public Pizza(int id) {
         this.setId(id);
-        this.color = Color.parseColor(color_list[id]);
     }
 
     public Pizza(int id, int preparingTime, int bakingTime) {

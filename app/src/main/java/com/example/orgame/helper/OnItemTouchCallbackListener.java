@@ -17,4 +17,10 @@ public interface OnItemTouchCallbackListener {
     boolean onMove(int srcPosition, int targetPosition);
 
 
+    /**
+     * called back when the item's interactive animation ends
+     */
+    public void clearView();
+
+
 }

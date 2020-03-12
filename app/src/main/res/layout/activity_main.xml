@@ -25,7 +25,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        android:clickable="false"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -215,53 +216,188 @@
         app:layout_constraintTop_toTopOf="@+id/guideline10"
         app:layout_constraintVertical_bias="0.53">
 
-        <ScrollView
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline19"
+            app:layout_constraintEnd_toStartOf="@+id/guideline19b"
+            app:layout_constraintStart_toEndOf="@+id/guideline19a"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <HorizontalScrollView
+                android:id="@+id/flowshop_scrollview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
+                android:layout_height="match_parent"
+                android:background="#FCE2BE"
+                android:fillViewport="true"
+                android:scrollbarAlwaysDrawHorizontalTrack="false">
+
+                <LinearLayout
+                    android:id="@+id/linearlayout_flowshop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|left"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/flowshop_scrollview_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:scrollbarStyle="insideInset"
+                        android:visibility="visible">
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.2" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline22"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.45" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.5" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.68" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline25"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.93" />
+
+
+                        <com.example.orgame.view.FlowshopOneView
+                            android:id="@+id/flowshop_m1_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline22"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/guideline23" />
+
+                        <com.example.orgame.view.FlowshopTwoView
+                            android:id="@+id/flowshop_m2_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline25"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/guideline24" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+
+                <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                android:id="@+id/flowshop_scrollview_layout"-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="match_parent"-->
+                <!--                android:scrollbarStyle="insideInset"-->
+                <!--                android:visibility="visible">-->
+
+                <!--                <androidx.constraintlayout.widget.Guideline-->
+                <!--                    android:id="@+id/guideline23"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    app:layout_constraintGuide_percent="0.2" />-->
+
+                <!--                <androidx.constraintlayout.widget.Guideline-->
+                <!--                    android:id="@+id/guideline22"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    app:layout_constraintGuide_percent="0.45" />-->
+
+                <!--                <androidx.constraintlayout.widget.Guideline-->
+                <!--                    android:id="@+id/guideline20"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    app:layout_constraintGuide_percent="0.5" />-->
+
+                <!--                <androidx.constraintlayout.widget.Guideline-->
+                <!--                    android:id="@+id/guideline24"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    app:layout_constraintGuide_percent="0.68" />-->
+
+                <!--                <androidx.constraintlayout.widget.Guideline-->
+                <!--                    android:id="@+id/guideline25"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    app:layout_constraintGuide_percent="0.93" />-->
+
+
+                <!--                <com.example.orgame.view.FlowshopOneView-->
+                <!--                    android:id="@+id/flowshop_m1_view"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="0dp"-->
+                <!--                    app:layout_constraintBottom_toTopOf="@+id/guideline22"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="@+id/guideline23" />-->
+
+                <!--                <com.example.orgame.view.FlowshopTwoView-->
+                <!--                    android:id="@+id/flowshop_m2_view"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="0dp"-->
+                <!--                    app:layout_constraintBottom_toTopOf="@+id/guideline25"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="@+id/guideline24" />-->
+
+
+                <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+            </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline19"
+            android:id="@+id/guideline19a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.16" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline19b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.98" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-<!--    <com.example.orgame.view.TimeRulerProgressBar-->
-<!--        android:layout_width="20dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/guideline20"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:progressBackground="@drawable/background_gradient_color"-->
-<!--        app:reachColor="@color/colorBlack"-->
-<!--        app:reachHeight="10dp"-->
-<!--        app:scaleBackground="@color/colorBlack"-->
-<!--        app:textColor="@color/colorBlack"-->
-<!--        app:textOffsetLine="100dp"-->
-<!--        app:textSize="12dp"-->
-<!--        app:unreachColor="@color/pizza0"-->
-<!--        app:unreachHeight="10dp" />-->
 
-    <EditText
+
+    <TextView
         android:id="@+id/hours_number"
         android:layout_width="36dp"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:background="@color/colorTransparent"
+        android:clickable="false"
         android:ems="10"
         android:fontFamily="@font/anton"
         android:gravity="bottom|center_horizontal"
@@ -276,13 +412,14 @@
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/guideline9"
         app:layout_constraintVertical_bias="0.63"
-        android:autofillHints="" />
+        />
 
-    <EditText
+    <TextView
         android:id="@+id/mins_number"
         android:layout_width="36dp"
         android:layout_height="46dp"
         android:background="@color/colorTransparent"
+        android:clickable="false"
         android:ems="10"
         android:fontFamily="@font/anton"
         android:gravity="bottom|center"
@@ -298,18 +435,6 @@
         app:layout_constraintTop_toTopOf="@+id/guideline9"
         app:layout_constraintVertical_bias="0.63" />
 
-    <!--    <com.example.orgame.view.BottomTitleView-->
-    <!--        android:id="@+id/bottomTitleView"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="47dp"-->
-    <!--        android:gravity="center_vertical"-->
-    <!--        android:visibility="visible"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--        app:layout_constraintRight_toRightOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="@+id/guideline2"-->
-    <!--        app:layout_constraintVertical_bias="1.0" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

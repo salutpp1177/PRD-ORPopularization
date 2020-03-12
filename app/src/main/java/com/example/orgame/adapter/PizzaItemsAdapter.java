@@ -24,7 +24,6 @@ import java.util.List;
 
 public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.MyViewHolder> {
 
-//    private Map<Integer,Pizza> pizzaMap;
     private List<Pizza> pizzaList;
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -48,7 +47,7 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
 
     private OnItemClickListener onItemClickListener = null;
 
-    /*暴露给外部的方法*/
+    /* Realized in MainActivity */
     public void setOnItemClickListener(OnItemClickListener listener) {
         onItemClickListener = listener;
     }
@@ -57,9 +56,6 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         void onItemClick(View view, int position);
     }
 
-//    public PizzaItemsAdapter(Map<Integer,Pizza> map) {
-//        this.pizzaMap = map;
-//    }
 
     public PizzaItemsAdapter() {
 
@@ -82,7 +78,7 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         //get pizza by position
         Pizza pizza = pizzaList.get(position);
         // update pizza's position in preselection list (upside window)
-//        pizza.setPreselectionPosition(position);
+        pizza.setPreselectionPosition(position);
         //set item border color
         Drawable drawable = getSelectorDrawable(pizza.getColor());
         holder.itemView.setBackground(drawable);
@@ -159,6 +155,7 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         sld.addState(new int[] { android.R.attr.state_pressed }, drawableClick);
         return sld;
     }
+
 
 
 
