@@ -13,6 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/background_gradient_color"
+        android:clickable="false"
         android:drawableStart="@drawable/polytech_logo_white"
         android:gravity="center_vertical"
         android:text="@string/bottom_title"
@@ -25,8 +26,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="1.0"
-        android:clickable="false"/>
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -220,7 +220,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline19b"
             app:layout_constraintStart_toEndOf="@+id/guideline19a"
             app:layout_constraintTop_toTopOf="parent">
@@ -229,22 +228,23 @@
                 android:id="@+id/flowshop_scrollview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FCE2BE"
                 android:fillViewport="true"
-                android:scrollbarAlwaysDrawHorizontalTrack="false">
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarStyle="insideInset">
 
                 <LinearLayout
                     android:id="@+id/linearlayout_flowshop"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_horizontal|left"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/flowshop_scrollview_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:scrollbarStyle="insideInset"
                         android:visibility="visible">
 
                         <androidx.constraintlayout.widget.Guideline
@@ -259,7 +259,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            app:layout_constraintGuide_percent="0.45" />
+                            app:layout_constraintGuide_percent="0.43" />
 
                         <androidx.constraintlayout.widget.Guideline
                             android:id="@+id/guideline20"
@@ -273,7 +273,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            app:layout_constraintGuide_percent="0.68" />
+                            app:layout_constraintGuide_percent="0.70" />
 
                         <androidx.constraintlayout.widget.Guideline
                             android:id="@+id/guideline25"
@@ -303,72 +303,11 @@
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
                 </LinearLayout>
 
 
-                <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-                <!--                android:id="@+id/flowshop_scrollview_layout"-->
-                <!--                android:layout_width="wrap_content"-->
-                <!--                android:layout_height="match_parent"-->
-                <!--                android:scrollbarStyle="insideInset"-->
-                <!--                android:visibility="visible">-->
-
-                <!--                <androidx.constraintlayout.widget.Guideline-->
-                <!--                    android:id="@+id/guideline23"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="match_parent"-->
-                <!--                    android:orientation="horizontal"-->
-                <!--                    app:layout_constraintGuide_percent="0.2" />-->
-
-                <!--                <androidx.constraintlayout.widget.Guideline-->
-                <!--                    android:id="@+id/guideline22"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:orientation="horizontal"-->
-                <!--                    app:layout_constraintGuide_percent="0.45" />-->
-
-                <!--                <androidx.constraintlayout.widget.Guideline-->
-                <!--                    android:id="@+id/guideline20"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:orientation="horizontal"-->
-                <!--                    app:layout_constraintGuide_percent="0.5" />-->
-
-                <!--                <androidx.constraintlayout.widget.Guideline-->
-                <!--                    android:id="@+id/guideline24"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:orientation="horizontal"-->
-                <!--                    app:layout_constraintGuide_percent="0.68" />-->
-
-                <!--                <androidx.constraintlayout.widget.Guideline-->
-                <!--                    android:id="@+id/guideline25"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:orientation="horizontal"-->
-                <!--                    app:layout_constraintGuide_percent="0.93" />-->
-
-
-                <!--                <com.example.orgame.view.FlowshopOneView-->
-                <!--                    android:id="@+id/flowshop_m1_view"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="0dp"-->
-                <!--                    app:layout_constraintBottom_toTopOf="@+id/guideline22"-->
-                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-                <!--                    app:layout_constraintStart_toStartOf="parent"-->
-                <!--                    app:layout_constraintTop_toTopOf="@+id/guideline23" />-->
-
-                <!--                <com.example.orgame.view.FlowshopTwoView-->
-                <!--                    android:id="@+id/flowshop_m2_view"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="0dp"-->
-                <!--                    app:layout_constraintBottom_toTopOf="@+id/guideline25"-->
-                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-                <!--                    app:layout_constraintStart_toStartOf="parent"-->
-                <!--                    app:layout_constraintTop_toTopOf="@+id/guideline24" />-->
-
-
-                <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
             </HorizontalScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -386,6 +325,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.98" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -411,8 +351,7 @@
         app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/guideline9"
-        app:layout_constraintVertical_bias="0.63"
-        />
+        app:layout_constraintVertical_bias="0.63" />
 
     <TextView
         android:id="@+id/mins_number"
@@ -434,7 +373,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/guideline9"
         app:layout_constraintVertical_bias="0.63" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

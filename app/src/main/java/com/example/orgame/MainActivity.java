@@ -1,6 +1,7 @@
 package com.example.orgame;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -12,8 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.HorizontalScrollView;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     TextView minuteNumberTextView;
     FlowshopOneView flowshopOneView;
     FlowshopTwoView flowshopTwoView;
-    HorizontalScrollView scrollView;
+    ConstraintLayout flowshopConstraintLayout;
 
     // adapter
     PizzaItemsAdapter pizzaItemsAdapter;
@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
     TimerViewModel timerViewModel;
     PizzasListViewModel pizzasListViewModel;
     FlowshopViewModel flowshopViewModel;
-
 
 
     @Override
@@ -92,13 +91,9 @@ public class MainActivity extends AppCompatActivity {
         this.minuteNumberTextView = findViewById(R.id.mins_number);
 
         // set flowshop view
-        this.scrollView = findViewById(R.id.flowshop_scrollview);
+        this.flowshopConstraintLayout = findViewById(R.id.flowshop_scrollview_layout);
         this.flowshopOneView = findViewById(R.id.flowshop_m1_view);
-//        this.flowshopOneView.setLayerType(View.LAYER_TYPE_HARDWARE, null
-//        );
         this.flowshopTwoView = findViewById(R.id.flowshop_m2_view);
-
-
 
         // set up adapter
         this.pizzaItemsAdapter = new PizzaItemsAdapter();
@@ -110,6 +105,10 @@ public class MainActivity extends AppCompatActivity {
             public void onChanged(Integer integer) {
                 hourNumberTextView.setText(Integer.toString(Algorithm.changeTimeFormat(integer)[0]));
                 minuteNumberTextView.setText(Integer.toString(Algorithm.changeTimeFormat(integer)[1]));
+                // reset the width of flowshop ConstraintLayout
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(integer*20+50, ViewGroup.LayoutParams.MATCH_PARENT);
+                flowshopConstraintLayout.setLayoutParams(layoutParams);
+                flowshopConstraintLayout.requestLayout();
             }
         });
 
@@ -120,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 pizzaItemsAdapter.setPizzaList(pizzas);
                 pizzaItemsAdapter.notifyDataSetChanged();
 
+
             }
         });
 
@@ -127,7 +127,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Pizza> pizzas) {
                 flowshopOneView.setFlowshopPizzas(pizzas);
+                flowshopOneView.invalidate();
                 flowshopTwoView.setFlowshopPizzas(pizzas);
+                flowshopTwoView.invalidate();
+
 
             }
         });
@@ -149,8 +152,8 @@ public class MainActivity extends AppCompatActivity {
                 pizzasListViewModel.updatePizzaList(pizza);
                 timerViewModel.updateUsedTotalTime(pizzaList);
                 flowshopViewModel.updateFlowshopList(pizzaList);
-                flowshopOneView.invalidate();
-                flowshopTwoView.invalidate();
+
+                // log int Terminal
                 String str = new String(pizza.getName() + ", " + "onItemClick: " + "Is chosen: "+pizza.getIsChosen() + ", position "+pizza.getPreselectionPosition());
                 Toast a = Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG);
                 Log.d("RecyclerView", str);
@@ -173,10 +176,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMove(int srcPosition, int targetPosition) {
                 if (pizzaList != null) {
                     try {
-                        // 更换数据源中的数据Item的位置。更改list中开始和结尾position的位置
+                        // Replace the position of the data item in the data source.
+                        // Change the position of the start and end positions in the list
                         Collections.swap(pizzaList, srcPosition, targetPosition);
                         Log.d("PIZZA MOVE", "onMove: from"+Integer.toString(srcPosition) + " TO "+ Integer.toString(targetPosition));
-                        // 更新UI中的Item的位置，主要是给用户看到交互效果
+                        // Update the position of the item in the UI, mainly to show the user the interaction effect
 
                         pizzaItemsAdapter.notifyItemMoved(srcPosition, targetPosition);
                     } catch (Exception e) {
@@ -193,20 +197,17 @@ public class MainActivity extends AppCompatActivity {
                     pizzaItemsAdapter.notifyDataSetChanged();
                     timerViewModel.updateUsedTotalTime(pizzaList);
                     flowshopViewModel.updateFlowshopList(pizzaList);
-                    flowshopOneView.invalidate();
-                    flowshopTwoView.invalidate();
                 }
             }
         });
 
         callback.setDragEnable(true);
         callback.setSwipeEnable(true);
-        // 创建helper对象，callback监听recyclerView item 的各种状态
+        // Create helper objects, callbacks to monitor the various states of the recyclerView item
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
         try {
-            //关联recyclerView，一个helper对象只能对应一个recyclerView
+            // Associate recyclerView, a helper object can only correspond to one recyclerView
             itemTouchHelper.attachToRecyclerView(recyclerView);
-            String logr = new String();
 
         } catch (Exception e) {
             e.printStackTrace();
