@@ -2,17 +2,20 @@ package com.example.orgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,13 +24,16 @@ import android.widget.Toast;
 import com.example.orgame.adapter.PizzaItemsAdapter;
 import com.example.orgame.helper.OnItemTouchCallbackListener;
 import com.example.orgame.helper.PizzaItemTouchHelperCallback;
+import com.example.orgame.view.BottomTitleView;
 import com.example.orgame.view.FlowshopOneView;
 import com.example.orgame.view.FlowshopTwoView;
+import com.example.orgame.view.TimeAxisView;
 import com.example.orgame.viewmodel.FlowshopViewModel;
 import com.example.orgame.viewmodel.PizzasListViewModel;
 import com.example.orgame.viewmodel.TimerViewModel;
 import com.example.orgame.model.Pizza;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -35,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
     // data
     List<Pizza> pizzaList;
-    List<Pizza> flowshopM1;
+    List<Pizza> pizzaListCopy;
+    int chosenCounter = 0;
+    int johnsonTime = 0;
 
     // view
     RecyclerView recyclerView;
@@ -44,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
     FlowshopOneView flowshopOneView;
     FlowshopTwoView flowshopTwoView;
     ConstraintLayout flowshopConstraintLayout;
+    TimeAxisView timeAxisOneView;
+    TimeAxisView timeAxisTwoView;
+
+    // button
+    ImageButton replayButton;
+    ImageButton keyButton;
 
     // adapter
     PizzaItemsAdapter pizzaItemsAdapter;
@@ -53,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     PizzasListViewModel pizzasListViewModel;
     FlowshopViewModel flowshopViewModel;
 
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // create the page
@@ -77,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
 
         // initialize pizza's data
         this.pizzaList = pizzasListViewModel.getPizzas().getValue();
+        this.pizzaListCopy = Algorithm.deepCopy(pizzaList);
+        this.pizzaListCopy = Collections.unmodifiableList(pizzaListCopy);
+        this.johnsonTime = Algorithm.calculateUsedTotalTime(Algorithm.solutionJohnson(pizzaList));
+        Log.d("PIZZA", "onCreate: johnson time + "+Integer.toString(johnsonTime));
 
         // set up recyclerView
         this.recyclerView = findViewById(R.id.window_above_layout);
@@ -90,27 +108,23 @@ public class MainActivity extends AppCompatActivity {
         this.hourNumberTextView = findViewById(R.id.hours_number);
         this.minuteNumberTextView = findViewById(R.id.mins_number);
 
+        //set up all the buttons in this page
+        this.replayButton = findViewById(R.id.replayButton);
+        this.keyButton = findViewById(R.id.keyButton);
+
         // set flowshop view
         this.flowshopConstraintLayout = findViewById(R.id.flowshop_scrollview_layout);
         this.flowshopOneView = findViewById(R.id.flowshop_m1_view);
         this.flowshopTwoView = findViewById(R.id.flowshop_m2_view);
 
+        //set axis in flowshop
+        this.timeAxisOneView = findViewById(R.id.preparation_timeaxis_view);
+        this.timeAxisTwoView = findViewById(R.id.baking_timeaxis_view);
+
+
         // set up adapter
         this.pizzaItemsAdapter = new PizzaItemsAdapter();
 
-
-        // set up TimeViewModel
-        timerViewModel.getUsedTotalTime().observe(this, new Observer<Integer>() {
-            @Override
-            public void onChanged(Integer integer) {
-                hourNumberTextView.setText(Integer.toString(Algorithm.changeTimeFormat(integer)[0]));
-                minuteNumberTextView.setText(Integer.toString(Algorithm.changeTimeFormat(integer)[1]));
-                // reset the width of flowshop ConstraintLayout
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(integer*20+50, ViewGroup.LayoutParams.MATCH_PARENT);
-                flowshopConstraintLayout.setLayoutParams(layoutParams);
-                flowshopConstraintLayout.requestLayout();
-            }
-        });
 
         // set up PizzasListViewModel
         pizzasListViewModel.getPizzas().observe(this, new Observer<List<Pizza>>() {
@@ -119,24 +133,95 @@ public class MainActivity extends AppCompatActivity {
                 pizzaItemsAdapter.setPizzaList(pizzas);
                 pizzaItemsAdapter.notifyDataSetChanged();
 
-
             }
         });
 
+        // set up FlowshopViewModel
         flowshopViewModel.getFlowshop().observe(this, new Observer<List<Pizza>>() {
             @Override
             public void onChanged(List<Pizza> pizzas) {
+                Log.d("PIZZA ", "onChanged: "+pizzas.toString());
                 flowshopOneView.setFlowshopPizzas(pizzas);
-                flowshopOneView.invalidate();
+                flowshopOneView.postInvalidate();
                 flowshopTwoView.setFlowshopPizzas(pizzas);
-                flowshopTwoView.invalidate();
+                flowshopTwoView.postInvalidate();
+            }
+        });
+
+        // set up TimeViewModel
+        timerViewModel.getUsedTotalTime().observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                hourNumberTextView.setText(Integer.toString(Algorithm.changeTimeFormat(integer)[0]));
+                minuteNumberTextView.setText(Integer.toString(Algorithm.changeTimeFormat(integer)[1]));
+                if(chosenCounter == 10) {
+                    if(integer > johnsonTime) {
+                        hourNumberTextView.setTextColor(Color.RED);
+                        minuteNumberTextView.setTextColor(Color.RED);
+                    } else {
+                        hourNumberTextView.setTextColor(Color.GREEN);
+                        minuteNumberTextView.setTextColor(Color.GREEN);
+                    }
+                }
+
+                // reset the width of flowshop ConstraintLayout
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(integer*20+50, ViewGroup.LayoutParams.MATCH_PARENT);
+                flowshopConstraintLayout.setLayoutParams(layoutParams);
+                flowshopConstraintLayout.requestLayout();
+                //reset axis below flowshop
+                if(integer > 0 ) {
+                    timeAxisOneView.setVisibility(View.VISIBLE);
+                    timeAxisOneView.setUsedTime(integer);
+                    timeAxisOneView.invalidate();
+                    timeAxisTwoView.setVisibility(View.VISIBLE);
+                    timeAxisTwoView.setUsedTime(integer);
+                    timeAxisTwoView.invalidate();
+                } else {
+                    timeAxisOneView.setVisibility(View.INVISIBLE);
+                    timeAxisTwoView.setVisibility(View.INVISIBLE);
+                }
 
 
             }
         });
 
 
-        // one click on pizza : choose or dismiss a pizza
+        // when click on replayButton : re-initialize the game but keep the data
+        replayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pizzaList.clear();
+                pizzaList = Algorithm.deepCopy(pizzaListCopy);
+                pizzasListViewModel.resetPizzas(pizzaList);
+                timerViewModel.updateUsedTotalTime(pizzaList);
+                flowshopViewModel.updateFlowshopList(pizzaList);
+                flowshopOneView.postInvalidate();
+                flowshopTwoView.postInvalidate();
+                chosenCounter = 0;
+                hourNumberTextView.setTextColor(Color.BLACK);
+                minuteNumberTextView.setTextColor(Color.BLACK);
+
+            }
+        });
+
+        // when click on keyButton : show the solution of Johnson flowshop Algorithm
+        keyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pizzaList = Algorithm.solutionJohnson(pizzaList);
+                pizzasListViewModel.resetPizzas(pizzaList);
+                timerViewModel.updateUsedTotalTime(pizzaList);
+                flowshopViewModel.updateFlowshopList(pizzaList);
+                flowshopOneView.postInvalidate();
+                flowshopTwoView.postInvalidate();
+                chosenCounter = 10;
+                hourNumberTextView.setTextColor(Color.GREEN);
+                minuteNumberTextView.setTextColor(Color.GREEN);
+            }
+        });
+
+
+        // when click on pizza : choose or dismiss a pizza
         pizzaItemsAdapter.setOnItemClickListener(new PizzaItemsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
@@ -146,8 +231,14 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, pizza.getName(), Toast.LENGTH_LONG).show();
                 if (pizza.getIsChosen()) {
                     view.findViewById(R.id.checkIcon).setVisibility(View.INVISIBLE);
+                    chosenCounter--;
                 } else {
                     view.findViewById(R.id.checkIcon).setVisibility(View.VISIBLE);
+                    chosenCounter++;
+                }
+                if (chosenCounter < 10) {
+                    hourNumberTextView.setTextColor(Color.BLACK);
+                    minuteNumberTextView.setTextColor(Color.BLACK);
                 }
                 pizzasListViewModel.updatePizzaList(pizza);
                 timerViewModel.updateUsedTotalTime(pizzaList);
@@ -197,6 +288,8 @@ public class MainActivity extends AppCompatActivity {
                     pizzaItemsAdapter.notifyDataSetChanged();
                     timerViewModel.updateUsedTotalTime(pizzaList);
                     flowshopViewModel.updateFlowshopList(pizzaList);
+                    flowshopOneView.postInvalidate();
+                    flowshopTwoView.postInvalidate();
                 }
             }
         });
@@ -214,24 +307,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("onStart :", "hello, I'm onStart  ");
+        Log.d("onStart :", "hello, I'm onStart  ，pizza counter： "+ Integer.toString(chosenCounter));
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d("onPause:", "hello, I'm onPause   ");
+        Log.d("onPause:", "hello, I'm onPause  ，pizza counter：  "+ Integer.toString(chosenCounter));
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d("onStop:", "hello, I'm onStop   ");
+        Log.d("onStop:", "hello, I'm onStop  ，pizza counter：  "+ Integer.toString(chosenCounter));
     }
 
     @Override
@@ -245,6 +339,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void setPizzaList(List<Pizza> pizzaList) {
         this.pizzaList = pizzaList;
+    }
+
+    public List<Pizza> getPizzaListCopy() {
+        return pizzaListCopy;
+    }
+
+    public void setPizzaListCopy(List<Pizza> pizzaListCopy) {
+        this.pizzaListCopy = pizzaListCopy;
     }
 
     public TimerViewModel getTimerViewModel() {
@@ -261,14 +363,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void setPizzasListViewModel(PizzasListViewModel pizzasListViewModel) {
         this.pizzasListViewModel = pizzasListViewModel;
-    }
-
-    public List<Pizza> getFlowshopM1() {
-        return flowshopM1;
-    }
-
-    public void setFlowshopM1(List<Pizza> flowshopM1) {
-        this.flowshopM1 = flowshopM1;
     }
 
     public FlowshopViewModel getFlowshopViewModel() {

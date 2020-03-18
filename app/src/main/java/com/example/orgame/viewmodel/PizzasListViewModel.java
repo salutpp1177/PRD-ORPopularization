@@ -79,6 +79,12 @@ public class PizzasListViewModel extends ViewModel {
     }
 
     public void setPizzas(MutableLiveData<List<Pizza>> pizzas) {
+
         this.pizzas = pizzas;
+    }
+
+    public void resetPizzas(List<Pizza> pizzas) {
+        this.getPizzas().getValue().clear();
+        this.getPizzas().setValue(pizzas);
     }
 }

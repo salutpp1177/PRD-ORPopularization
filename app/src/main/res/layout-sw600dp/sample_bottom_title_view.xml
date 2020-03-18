@@ -18,7 +18,7 @@
     <ImageView
         android:id="@+id/polytech_logo"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guidelinebth"
@@ -34,7 +34,7 @@
         android:fontFamily="@font/anton"
         android:text="@string/bottom_title"
         android:textColor="@color/colorWhite"
-        android:textSize="10sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guidelinebtv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -44,7 +44,7 @@
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelinebtv"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.50" />
 

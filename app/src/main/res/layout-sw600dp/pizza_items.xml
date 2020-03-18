@@ -3,14 +3,14 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/pizza_cardview"
-    android:layout_width="120dp"
+    android:layout_width="150dp"
     android:layout_height="match_parent"
-    android:layout_marginStart="10dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginTop="5dp"
-    android:layout_marginEnd="10dp"
-    android:layout_marginRight="5dp"
-    android:layout_marginBottom="5dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical"
@@ -23,173 +23,171 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <TextView
             android:id="@+id/pizzaPreparingTime"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="4dp"
             android:background="@drawable/rectangle_in_pizza_item"
             android:gravity="center|right"
             android:paddingRight="2dp"
             android:textColor="@color/colorBlack"
-            android:textSize="10sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            card_view:layout_constraintBottom_toTopOf="@+id/guideline14b"
+            card_view:layout_constraintBottom_toTopOf="@+id/guideline17b"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.0"
-            card_view:layout_constraintStart_toStartOf="@+id/guideline16b"
-            card_view:layout_constraintTop_toTopOf="@+id/guideline14a"
-            card_view:layout_constraintVertical_bias="1.0" />
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="@+id/guideline17a" />
 
         <TextView
             android:id="@+id/pizzaBakingTime"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/rectangle_in_pizza_item"
             android:gravity="center|right"
             android:paddingRight="2dp"
             android:textColor="@color/colorBlack"
-            android:textSize="10sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline18b"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="1.0"
-            card_view:layout_constraintStart_toStartOf="@+id/guideline16b"
-            card_view:layout_constraintTop_toTopOf="@+id/guideline18a"
-            card_view:layout_constraintVertical_bias="1.0" />
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="@+id/guideline18a" />
+
 
         <ImageView
             android:id="@+id/pizzaBorder"
-            android:layout_width="32dp"
+            android:layout_width="70dp"
             android:layout_height="0dp"
             android:background="@drawable/oval_pizza_border"
             android:contentDescription="TODO"
-            card_view:layout_constraintBottom_toTopOf="@+id/guideline18a"
+            card_view:layout_constraintBottom_toTopOf="@+id/guideline14b"
             card_view:layout_constraintDimensionRatio="h,1:1"
-            card_view:layout_constraintEnd_toStartOf="@+id/guideline15b"
+            card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.5"
-            card_view:layout_constraintStart_toStartOf="@+id/guideline15b"
-            card_view:layout_constraintTop_toBottomOf="@+id/guideline14b"
-            card_view:layout_constraintVertical_bias="0.485" />
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/guideline14a" />
 
         <ImageView
             android:id="@+id/pizza_heart"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:foreground="@drawable/pizza_heart"
             card_view:layout_constraintBottom_toTopOf="@+id/pizzaBorder"
-            card_view:layout_constraintEnd_toStartOf="@+id/guideline15b"
+            card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.5"
-            card_view:layout_constraintStart_toStartOf="@+id/guideline15b"
-            card_view:layout_constraintTop_toBottomOf="@+id/pizzaBorder" />
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/pizzaBorder"
+            tools:targetApi="m" />
+
 
         <ImageView
             android:id="@+id/preparingPizzaIcon"
             android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:background="@drawable/preparing_pizza_icon"
-            card_view:layout_constraintBottom_toTopOf="@+id/guideline14b"
-            card_view:layout_constraintEnd_toStartOf="@+id/guideline16d"
-            card_view:layout_constraintHorizontal_bias="1.0"
-            card_view:layout_constraintStart_toStartOf="@+id/guideline16c"
-            card_view:layout_constraintTop_toTopOf="@+id/guideline14a" />
+            card_view:layout_constraintBottom_toTopOf="@+id/guideline17b"
+            card_view:layout_constraintDimensionRatio="w,1:1"
+            card_view:layout_constraintEnd_toStartOf="@+id/guideline16"
+            card_view:layout_constraintStart_toStartOf="@+id/guideline15"
+            card_view:layout_constraintTop_toTopOf="@+id/guideline17a" />
 
         <ImageView
             android:id="@+id/ovenIcon"
-            android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_width="44dp"
+            android:layout_height="48dp"
             android:background="@drawable/oven_icon"
-            android:maxWidth="35dp"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline18b"
-            card_view:layout_constraintEnd_toStartOf="@+id/guideline16d"
-            card_view:layout_constraintStart_toStartOf="@+id/guideline16c"
+            card_view:layout_constraintDimensionRatio="w,1:1"
+            card_view:layout_constraintEnd_toStartOf="@+id/guideline16"
+            card_view:layout_constraintStart_toStartOf="@+id/guideline15"
             card_view:layout_constraintTop_toTopOf="@+id/guideline18a" />
 
         <ImageView
             android:id="@+id/checkIcon"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/check"
             android:contentDescription="TODO"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.28"
+            card_view:layout_constraintHorizontal_bias="0.968"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.95" />
+            card_view:layout_constraintVertical_bias="0.983" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline14a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            card_view:layout_constraintGuide_percent="0.05" />
-
+            card_view:layout_constraintGuide_percent="0.16" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline14b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            card_view:layout_constraintGuide_percent="0.45" />
+            card_view:layout_constraintGuide_percent="0.24" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline15b"
+            android:id="@+id/guideline15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             card_view:layout_constraintGuide_percent="0.16" />
 
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        card_view:layout_constraintGuide_percent="0.50" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline16b"
+            android:id="@+id/guideline17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            card_view:layout_constraintGuide_percent="0.42" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline16c"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            card_view:layout_constraintGuide_percent="0.50" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline16d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            card_view:layout_constraintGuide_percent="0.72" />
+            android:orientation="horizontal"
+            card_view:layout_constraintGuide_percent="0.53" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline17a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            card_view:layout_constraintGuide_percent="0.50"
-            card_view:layout_constraintStart_toStartOf="parent" />
+            card_view:layout_constraintGuide_percent="0.50" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline17b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            card_view:layout_constraintGuide_percent="0.56" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            card_view:layout_constraintGuide_percent="0.81" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline18a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            card_view:layout_constraintGuide_percent="0.55" />
+            card_view:layout_constraintGuide_percent="0.78" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline18b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            card_view:layout_constraintGuide_percent="0.95" /><![CDATA[
+            card_view:layout_constraintGuide_percent="0.84" />
 
         />
 
-    ]]>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

@@ -28,7 +28,6 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
         ConstraintLayout constraintLayout;
-        ImageView pizzaIcon;
         TextView pizzaPreparingTime;
         TextView pizzaBakingTime;
         ImageView checkIcon;
@@ -86,25 +85,13 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         //set prepraing time rectangle color and text
         GradientDrawable rectDrawable1 =  (GradientDrawable)holder.pizzaPreparingTime.getBackground();
         rectDrawable1.setColor(pizza.getColor());
-        String preparingtimeString, bakingtimeString;
-        preparingtimeString = new String(Integer.toString(pizza.getPreparingTime())+"\n");
-        bakingtimeString = new String(Integer.toString(pizza.getBakingTime()) + "\n");
-        if (pizza.getPreparingTime() <= 1 ) {
-            preparingtimeString += "min";
-        } else {
-            preparingtimeString += "mins";
-        }
-        holder.pizzaPreparingTime.setText(preparingtimeString);
+        holder.pizzaPreparingTime.setText(String.format("%d\nmins", pizza.getPreparingTime()));
 
         //set baking time rectangle color and text
+
         GradientDrawable rectDrawable2 =  (GradientDrawable)holder.pizzaBakingTime.getBackground();
         rectDrawable2.setColor(pizza.getColor());
-        if (pizza.getBakingTime() <= 1 ) {
-            bakingtimeString += "min";
-        } else {
-            bakingtimeString += "mins";
-        }
-        holder.pizzaBakingTime.setText(bakingtimeString);
+        holder.pizzaBakingTime.setText(String.format("%d\nmins",pizza.getBakingTime()));
 
         // set checkIcon invisible
         if(pizza.getIsChosen()) {

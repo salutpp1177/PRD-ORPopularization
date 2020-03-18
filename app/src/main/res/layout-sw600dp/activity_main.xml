@@ -8,6 +8,26 @@
     tools:context=".MainActivity">
 
 
+<!--    <TextView-->
+<!--        android:id="@+id/bottom_title_textview"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:background="@drawable/background_gradient_color"-->
+<!--        android:clickable="false"-->
+<!--        android:drawableStart="@drawable/polytech_logo_white"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:text="@string/bottom_title"-->
+<!--        android:textColor="@color/colorWhite"-->
+<!--        android:textSize="24sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:visibility="visible"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/guideline2"-->
+<!--        app:layout_constraintVertical_bias="1.0" />-->
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
@@ -87,15 +107,13 @@
         android:id="@+id/back2menu_button"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="4dp"
         android:background="@drawable/button_back2menu"
         android:contentDescription="@string/back2menu_button"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintStart_toEndOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
@@ -140,7 +158,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.48" />
+        app:layout_constraintGuide_percent="0.50" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
@@ -205,8 +223,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/background_flowshop"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
@@ -271,21 +289,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            app:layout_constraintGuide_percent="0.68" />
+                            app:layout_constraintGuide_percent="0.70" />
 
                         <androidx.constraintlayout.widget.Guideline
                             android:id="@+id/guideline25"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            app:layout_constraintGuide_percent="0.90" />
+                            app:layout_constraintGuide_percent="0.93" />
 
 
                         <com.example.orgame.view.FlowshopOneView
                             android:id="@+id/flowshop_m1_view"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_marginBottom="3dp"
+                            android:layout_marginBottom="5dp"
                             app:layout_constraintBottom_toTopOf="@+id/guideline22"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -295,7 +313,7 @@
                             android:id="@+id/flowshop_m2_view"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_marginBottom="3dp"
+                            android:layout_marginBottom="5dp"
                             app:layout_constraintBottom_toTopOf="@+id/guideline25"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -348,6 +366,7 @@
             app:layout_constraintGuide_percent="0.98" />
 
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -364,10 +383,11 @@
         android:inputType="number"
         android:text="0"
         android:textColor="@color/colorBlack"
-        android:textSize="15sp"
+        android:textSize="27sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/guideline9"
         app:layout_constraintVertical_bias="0.63" />
@@ -375,7 +395,7 @@
     <TextView
         android:id="@+id/mins_number"
         android:layout_width="36dp"
-        android:layout_height="wrap_content"
+        android:layout_height="46dp"
         android:background="@color/colorTransparent"
         android:clickable="false"
         android:ems="10"
@@ -384,10 +404,11 @@
         android:inputType="number"
         android:text="0"
         android:textColor="@color/colorBlack"
-        android:textSize="15sp"
+        android:textSize="27sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintHorizontal_bias="0.73"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/guideline9"
         app:layout_constraintVertical_bias="0.63" />
