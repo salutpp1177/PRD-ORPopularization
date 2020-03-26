@@ -1,10 +1,14 @@
 package com.example.orgame.model;
 
 import android.graphics.Color;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-public class Pizza implements Cloneable{
+import java.io.Serializable;
+
+public class Pizza implements Cloneable, Serializable {
 
     public static String[] color_list= { "#F69531", "#59F8B4", "#59E9FD", "#D18CF0", "#4E5AE6", "#A7AAAC",
             "#F281A8", "#F82828", "#FCDC5E", "#19A89B" };
@@ -18,6 +22,7 @@ public class Pizza implements Cloneable{
     private int johnsonPosition; /** the position of pizza by Johnson Algorithm's solution */
     private int color; /** the color of the pizza */
     private boolean isChosen; /** tell whether the pizza is chosen or not */
+
 
     /**
      * constructor
@@ -39,6 +44,73 @@ public class Pizza implements Cloneable{
         this.isChosen = false;
     }
 
+
+
+    @NonNull
+    @Override
+    public Object clone() {
+        try{
+            Pizza pizza = (Pizza) super.clone();
+            return pizza;
+        }catch (CloneNotSupportedException e){
+            return null;
+        }
+    }
+
+//    @Override
+//    public void writeToParcel(Parcel parcel, int i) {
+//        parcel.writeInt(id);
+//        parcel.writeString(name);
+//        parcel.writeInt(preselectionPosition);
+//        parcel.writeInt(flowshopPositon);
+//        parcel.writeInt(preparingTime);
+//        parcel.writeInt(bakingTime);
+//        parcel.writeInt(johnsonPosition);
+//        parcel.writeInt(color);
+//        parcel.writeByte((byte) (isChosen ? 1 : 0));
+//    }
+
+
+//    public static final Parcelable.Creator<Pizza> CREATOR = new Parcelable.Creator<Pizza>() {
+//        /**
+//         * Returns a single instance that implements the Parcelable interface
+//         */
+//        public Pizza createFromParcel(Parcel source){
+//            Pizza pizza = new Pizza();
+//            pizza.setId(source.readInt());
+//            pizza.setName(source.readString());
+//            pizza.setPreselectionPosition(source.readInt());
+//            pizza.setFlowshopPositon(source.readInt());
+//            pizza.setPreparingTime(source.readInt());
+//            pizza.setBakingTime(source.readInt());
+//            pizza.setJohnsonPosition(source.readInt());
+//            pizza.setIsChosen(source.readByte()!=0);
+//            return pizza;
+//        }
+//        /**
+//         * Returns multiple instances that implement the Parcelable interface
+//         */
+//        public Pizza[] newArray(int size){
+//            return new Pizza[size];
+//        }
+//
+//    };
+//
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
+
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", preparingTime=" + preparingTime +
+                ", bakingTime=" + bakingTime +
+                ", isChosen=" + isChosen +
+                '}';
+    }
 
     public int getId() {
         return id;
@@ -116,24 +188,5 @@ public class Pizza implements Cloneable{
 
     public void setIsChosen(boolean isChosen) {
         this.isChosen = isChosen;
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        String str = new String(this.name);
-        str += this.isChosen;
-        return str;
-    }
-
-    @NonNull
-    @Override
-    public Object clone() {
-        try{
-            Pizza pizza = (Pizza) super.clone();
-            return pizza;
-        }catch (CloneNotSupportedException e){
-            return null;
-        }
     }
 }

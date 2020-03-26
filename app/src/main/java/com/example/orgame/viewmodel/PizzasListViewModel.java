@@ -3,7 +3,6 @@ package com.example.orgame.viewmodel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.orgame.Algorithm;
 import com.example.orgame.model.Pizza;
 
 import java.util.List;
@@ -16,17 +15,20 @@ public class PizzasListViewModel extends ViewModel {
      * default constructor
      */
     public PizzasListViewModel() {
-        pizzas = new MutableLiveData<>();
-        pizzas.setValue(Algorithm.initAllPizzaList());
-        initAllPizzaPreselectionPostion();
+//        pizzas = new MutableLiveData<>();
+//        pizzas.setValue(Algorithm.createPizzaList());
+//        initAllPizzaPreselectionPostion();
     }
 
     /**
      * default constructor
      */
     public PizzasListViewModel(List<Pizza> p) {
-        pizzas.setValue(p);
-        initAllPizzaPreselectionPostion();
+        if(!p.isEmpty()) {
+            pizzas = new MutableLiveData<>();
+            pizzas.setValue(p);
+            initAllPizzaPreselectionPostion();
+        }
     }
 
     /**
@@ -78,9 +80,9 @@ public class PizzasListViewModel extends ViewModel {
         return pizzas;
     }
 
-    public void setPizzas(MutableLiveData<List<Pizza>> pizzas) {
-
-        this.pizzas = pizzas;
+    public void setPizzas(List<Pizza> pizzalist) {
+        this.pizzas = new MutableLiveData<>();
+        this.pizzas.setValue(pizzalist);
     }
 
     public void resetPizzas(List<Pizza> pizzas) {

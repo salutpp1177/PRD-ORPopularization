@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Salut, RO!</string>
+    <string name="bottom_title">Tout droit réservé.</string>
+    <string name="cooking_board_imageview">cooking_board_imageView</string>
+    <string name="task_board_text">Your Cooking Pizza Tasks</string>
+    <string name="Timer_background_imageview">Timer_background_imageView</string>
+    <string name="back2menu_button">back2menu_button</string>
+    <string name="gamepage_menu_button">menu_button</string>
+    <string name="gamepage_retry_button">retry_button</string>
+
+    <string name="title_activity_gamepage">activity_gamepage</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- first page title strings-->
+    <string name="firstpage_welcome">Bienvenue</string>
+    <string name="firstpage_to">dans</string>
+    <string name="firstpage_operation">La Recherche</string>
+    <string name="firstpage_research">Opérationnelle</string>
+    <string name="firstpage_world">le Monde</string>
+    <string name="play_button">JOUER</string>
+    <string name="language_button">Langue</string>
+    <string-array name="spinner_strings">
+        <item>Français</item>
+        <item>English</item>
+    </string-array>
+    <string name="tutorial_p1_s1">Regarde ! Tu as <b>4</b> pizzas à cuisiner !</string>
+    <string name="tutorial_p1_s2">Comme nous le savons, il y a deux centres de travail :</string>
+    <string name="tutorial_p1_s3">Ce que l\'on doit faire en premier est de classer ces pizzas en <font color='#F69531'><b>2</b></font> groupes, comme ceci :</string>
+    <string name="tutorial_p2_s1"><font color='#60A917'><b>Ensuite </b></font>, nous devons trier chaque groupe <b>MAIS</b> dans un ordre différent.</string>
+    <string name="tutorial_p2_s2">Regarde le <font color='#094270'><b>Groupe 1</b></font>, nous devons nous concentrer sur leur\t</string>
+    <string name="tutorial_p2_w1">Temps de Préparation</string>
+    <string name="tutorial_p2_s3">Ainsi nous les trions par ordre <font color='#60A917'><b>Croissant</b></font> du temps de préparation.</string>
+    <string name="tutorial_p3_s1"><font color='#60A917'><b>Ensuite </b></font>, nous devons trier le <font color='#094270'><b>Groupe 1</b></font> mais dans le sens <b>inverse</b>.</string>
+    <string name="tutorial_p3_s2">Regarde le <b>Groupe 2</b>, nous devons nous concentrer sur leur </string>
+    <string name="tutorial_p3_w1">Temps de Cuisson</string>
+    <string name="tutorial_p3_s3">Ainsi nous les trions par ordre <font color='#60A917'><b>Décroissant</b></font> du temps de cuisson.</string>
+    <string name="tutorial_p4_s1">Pour finir, il suffit de <b>combiner</b> le Groupe 1 et le Groupe 2 triés.</string>
+    <string name="tutorial_p4_s2">Ainsi, le temps final de cuisine est :</string>
+    <string name="tutorial_p4_s3">As-tu compris cet algorithme?</string>
+    <string name="tutorial_p4_s4_a">Clique sur</string>
+    <string name="tutorial_p4_s4_b">pour revenir au jeu,</string>
+    <string name="tutorial_p4_s5_a">et tu verras une clé</string>
+    <string name="tutorial_p4_s5_b">, clique dessus pour découvrir la meilleure solution !</string>
+</resources>

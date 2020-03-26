@@ -11,4 +11,38 @@
     <string name="title_activity_gamepage">activity_gamepage</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- first page title strings-->
+    <string name="firstpage_welcome">Welcome</string>
+    <string name="firstpage_to">to</string>
+    <string name="firstpage_operation">Operation</string>
+    <string name="firstpage_research">Research</string>
+    <string name="firstpage_world">world</string>
+    <string name="play_button">PLAY</string>
+    <string name="language_button">Language</string>
+    <string-array name="spinner_strings">
+        <item>Français</item>
+        <item>English</item>
+    </string-array>
+    <string name="tutorial_p1_s1">Look! There are <b>4</b> pizza-cooking tasks for you !</string>
+    <string name="tutorial_p1_s2">As we know, there are two work centers :</string>
+    <string name="tutorial_p1_s3">What we need to do firstly is to classify these pizza into <font color='#F69531'><b>2</b></font>  groups like this.</string>
+    <string name="tutorial_p2_s1"><font color='#60A917'><b>Next </b></font>, we need to sort each group <b>BUT</b> by different order.</string>
+    <string name="tutorial_p2_s2">Look at <font color='#094270'><b> Group 1 </b></font>, we need to focus on their\t</string>
+    <string name="tutorial_p2_w1">Preparing Time</string>
+    <string name="tutorial_p2_s3">So we sort them in <font color='#60A917'><b> Ascending </b></font> order of their preparing time.</string>
+    <string name="tutorial_p3_s1"><font color='#60A917'><b>And </b></font>, we need to sort <font color='#094270'><b> Group 1 </b></font> but in contrary way.</string>
+    <string name="tutorial_p3_s2">Look at <b>Group 2</b>, we need to focus on their</string>
+    <string name="tutorial_p3_w1">Baking Time</string>
+    <string name="tutorial_p3_s3">So we sort them in <font color='#60A917'><b> Descending </b></font>  order of their baking time.</string>
+    <string name="tutorial_p4_s1">Finally, just <b>combiner</b> the ordered group 1 and the ordered group 2. </string>
+    <string name="tutorial_p4_s2">So, your final cooking time is :</string>
+    <string name="tutorial_p4_s3">Do you get this algorithm ?</string>
+    <string name="tutorial_p4_s4_a">Click</string>
+    <string name="tutorial_p4_s4_b">to come back to your game,</string>
+    <string name="tutorial_p4_s5_a">and you will see a key</string>
+    <string name="tutorial_p4_s5_b">, click it to find out the best solution!</string>
 </resources>

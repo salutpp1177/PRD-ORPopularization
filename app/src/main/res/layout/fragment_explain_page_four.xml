@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/johnson_step4"
+    android:id="@+id/fragment_t_p1">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/f1_p4_s1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tutorial_p4_s1"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.03"
+            app:layout_constraintStart_toStartOf="@+id/tp3guideline2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.059" />
+
+        <TextView
+            android:id="@+id/f1_p4_s2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tutorial_p4_s2"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tp3guideline1"
+            app:layout_constraintStart_toStartOf="@+id/tp3guideline2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.389" />
+
+        <TextView
+            android:id="@+id/f1_p4_s3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tutorial_p4_s3"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tp3guideline1"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tp3guideline2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.642"></TextView>
+
+        <TextView
+            android:id="@+id/f1_p4_s4_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tutorial_p4_s4_a"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@+id/tp4guideline4"
+            app:layout_constraintStart_toStartOf="@+id/tp3guideline2"
+            app:layout_constraintTop_toTopOf="@+id/tp4guideline4"></TextView>
+
+        <TextView
+            android:id="@+id/f1_p4_s4_b"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/tutorial_p4_s4_b"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@+id/tp4guideline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/f1_p4_back_logo"
+            app:layout_constraintTop_toTopOf="@+id/tp4guideline4"></TextView>
+
+        <TextView
+            android:id="@+id/f1_p4_s5_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tutorial_p4_s5_a"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/tp4guideline5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tp3guideline2"
+            app:layout_constraintTop_toTopOf="@+id/tp4guideline5"></TextView>
+
+        <TextView
+            android:id="@+id/f1_p4_s5_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/tutorial_p4_s5_b"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/tp4guideline5"
+            app:layout_constraintEnd_toStartOf="@+id/tp3guideline1"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/f1_p4_key_logo"
+            app:layout_constraintTop_toTopOf="@+id/tp4guideline5"></TextView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tp3guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.27" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tp3guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.03" />
+
+        <ImageView
+            android:id="@+id/f1_p4_back_logo"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/tp4guideline4"
+            app:layout_constraintStart_toEndOf="@+id/f1_p4_s4_a"
+            app:layout_constraintTop_toTopOf="@+id/tp4guideline4"
+            app:srcCompat="@drawable/button_back2menu" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tp4guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.74" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tp4guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <ImageView
+            android:id="@+id/f1_p4_key_logo"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/tp4guideline5"
+            app:layout_constraintStart_toEndOf="@+id/f1_p4_s5_a"
+            app:layout_constraintTop_toTopOf="@+id/tp4guideline5"
+            app:srcCompat="@drawable/button_key" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

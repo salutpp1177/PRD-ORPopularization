@@ -7,13 +7,12 @@
     android:background="@drawable/background_gradient_color">
 
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelinebth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.33" />
+        app:layout_constraintGuide_percent="0.25" />
 
     <ImageView
         android:id="@+id/polytech_logo"
@@ -25,7 +24,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/polytech_logo_white" />
+        app:srcCompat="@drawable/polytech_logo_white"
+        />
 
     <TextView
         android:id="@+id/all_rights_reserved"

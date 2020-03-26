@@ -3,7 +3,7 @@ package com.example.orgame.viewmodel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.orgame.Algorithm;
+import com.example.orgame.helper.Algorithm;
 import com.example.orgame.model.Pizza;
 
 import java.util.ArrayList;

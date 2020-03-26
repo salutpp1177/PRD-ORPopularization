@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.orgame.R;
 import com.example.orgame.model.Pizza;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -35,11 +36,11 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
 
         MyViewHolder(View view) {
             super(view);
-            constraintLayout = (ConstraintLayout)view.findViewById(R.id.itemConstraintLayout);
-            pizzaPreparingTime = (TextView)view.findViewById(R.id.pizzaPreparingTime);
-            pizzaBakingTime = (TextView)view.findViewById(R.id.pizzaBakingTime);
-            checkIcon = (ImageView)view.findViewById(R.id.checkIcon);
-            pizzaBorder = (ImageView)view.findViewById(R.id.pizzaBorder);
+            constraintLayout = (ConstraintLayout) view.findViewById(R.id.itemConstraintLayout);
+            pizzaPreparingTime = (TextView) view.findViewById(R.id.pizzaPreparingTime);
+            pizzaBakingTime = (TextView) view.findViewById(R.id.pizzaBakingTime);
+            checkIcon = (ImageView) view.findViewById(R.id.checkIcon);
+            pizzaBorder = (ImageView) view.findViewById(R.id.pizzaBorder);
         }
 
     }
@@ -51,7 +52,7 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         onItemClickListener = listener;
     }
 
-    public interface OnItemClickListener{
+    public interface OnItemClickListener {
         void onItemClick(View view, int position);
     }
 
@@ -61,12 +62,13 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
     }
 
     public PizzaItemsAdapter(List<Pizza> pizzaList) {
+        this.pizzaList = new ArrayList<>();
         this.pizzaList = pizzaList;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pizza_items, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pizza_items, parent, false);
         MyViewHolder holder = new MyViewHolder(view);
         return holder;
     }
@@ -83,18 +85,18 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         holder.itemView.setBackground(drawable);
         //set item's data
         //set prepraing time rectangle color and text
-        GradientDrawable rectDrawable1 =  (GradientDrawable)holder.pizzaPreparingTime.getBackground();
+        GradientDrawable rectDrawable1 = (GradientDrawable) holder.pizzaPreparingTime.getBackground();
         rectDrawable1.setColor(pizza.getColor());
         holder.pizzaPreparingTime.setText(String.format("%d\nmins", pizza.getPreparingTime()));
 
         //set baking time rectangle color and text
 
-        GradientDrawable rectDrawable2 =  (GradientDrawable)holder.pizzaBakingTime.getBackground();
+        GradientDrawable rectDrawable2 = (GradientDrawable) holder.pizzaBakingTime.getBackground();
         rectDrawable2.setColor(pizza.getColor());
-        holder.pizzaBakingTime.setText(String.format("%d\nmins",pizza.getBakingTime()));
+        holder.pizzaBakingTime.setText(String.format("%d\nmins", pizza.getBakingTime()));
 
         // set checkIcon invisible
-        if(pizza.getIsChosen()) {
+        if (pizza.getIsChosen()) {
             holder.checkIcon.setVisibility(View.VISIBLE);
         } else {
             holder.checkIcon.setVisibility(View.INVISIBLE);
@@ -102,7 +104,7 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
 
 
         // set pizza icon color
-        GradientDrawable ovalDrawable =  (GradientDrawable)holder.pizzaBorder.getBackground();
+        GradientDrawable ovalDrawable = (GradientDrawable) holder.pizzaBorder.getBackground();
         ovalDrawable.setColor(pizza.getColor());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -111,12 +113,10 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
                 onItemClickListener.onItemClick(holder.itemView, position);
             }
         });
-
     }
 
     @Override
     public int getItemCount() {
-//        return pizzaMap.size();
         return pizzaList.size();
     }
 
@@ -138,12 +138,10 @@ public class PizzaItemsAdapter extends RecyclerView.Adapter<PizzaItemsAdapter.My
         drawableClick.setColor(Color.parseColor("#FCE8D5"));
 
         StateListDrawable sld = new StateListDrawable();
-        sld.addState(new int[] { -android.R.attr.state_pressed }, drawable);
-        sld.addState(new int[] { android.R.attr.state_pressed }, drawableClick);
+        sld.addState(new int[]{-android.R.attr.state_pressed}, drawable);
+        sld.addState(new int[]{android.R.attr.state_pressed}, drawableClick);
         return sld;
     }
-
-
 
 
     public List<Pizza> getPizzaList() {
