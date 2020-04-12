@@ -24,17 +24,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * This class is to describe all the interactions between users and the first page
+ * This page is the first page that user will see after loading to the application
+ */
 public class FirstPageActivity extends AppCompatActivity {
 
-    Spinner spinner;
-    Button playButton;
-    ArrayList<Pizza> pizzas;
-    ImageView univLogo;
-    ImageView polytechLogo;
-    ImageView lifatLogo;
-    SpinnerItemsAdapter spinnerItemsAdapter;
+    Spinner spinner; // spinner to select the language
+    Button playButton; // play button to enter into the game
+//    ArrayList<Pizza> pizzas; // pizzaslist
+    ImageView univLogo; // an ImageView applying logo of University of Tours
+    ImageView polytechLogo; // an ImageView applying logo of Polytech Tours
+    ImageView lifatLogo; // an ImageView applying logo of LIFAT
+    SpinnerItemsAdapter spinnerItemsAdapter; // Adapter to match the strings array and spinner view
 
 
+    /**
+     * Initialisation of all the components in this activity
+     * and description about all the trigger action in this activty
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +58,9 @@ public class FirstPageActivity extends AppCompatActivity {
         this.polytechLogo = this.findViewById(R.id.polytech_logo);
         this.lifatLogo = this.findViewById(R.id.first_page_lifatlogo);
 
-        // click univ logo
+        /**
+         * when click univ-logo, skip to the browser and open this site
+         */
         this.univLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,7 +70,9 @@ public class FirstPageActivity extends AppCompatActivity {
             }
         });
 
-        // click polytech logo
+        /**
+         * when click polytech-logo, skip to the browser and open this site
+         */
         this.polytechLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +82,9 @@ public class FirstPageActivity extends AppCompatActivity {
             }
         });
 
-        // click lifat logo
+        /**
+         * when click lifat-logo, skip to the browser and open this site
+         */
         this.lifatLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,10 +94,13 @@ public class FirstPageActivity extends AppCompatActivity {
             }
         });
 
-        pizzas = new ArrayList<>();
+//        pizzas = new ArrayList<>();
 //        pizzas = (ArrayList<Pizza>)getIntent().getSerializableExtra("pizzaslist2");
 
-        // set play button
+        // set play buttone
+        /**
+         * click the play button, move to the game page
+         */
         this.playButton = this.findViewById(R.id.play_button);
         this.playButton.setOnClickListener(new View.OnClickListener() {
             @Override
