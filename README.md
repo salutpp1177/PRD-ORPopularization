@@ -17,3 +17,9 @@ In the flowshop-pizza game, you need to select all the pizzas, of course, you ca
 > > click the **book** button, discover more interesting tutorials. <br>
 > > click the ***NEW GAME*** button, accepte a new turn challenge!! <br>
 
+***Here are the screenshots for this App.***
+![](imgs/pdfgit1.gif)
+
+![](imgs/pdfgit2.gif)
+
+![](imgs/pdfgit3.gif)
