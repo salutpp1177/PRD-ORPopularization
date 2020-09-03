@@ -13,7 +13,7 @@ Our platform is bilingual: English and French, supports all Android devices ( at
 In the flowshop-pizza game, you need to select all the pizzas, of course, you can drag and drop the pizzas to change their order. 
 > When you are eager to know the best solution, click the ***key*** button. <br>
 > When you want to restart it again, click the ***rewind*** button. <br>
-> Trigger the ***menu*** button in the upper right corner <br>
+> Trigger the ***menu*** button in the upper right corner. <br>
 > > click the **book** button, discover more interesting tutorials. <br>
-> > click the ***NEW GAME*** button, accepte a new turn challenge <br>
+> > click the ***NEW GAME*** button, accepte a new turn challenge!! <br>
 
