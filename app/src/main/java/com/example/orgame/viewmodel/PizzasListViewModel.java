@@ -15,9 +15,6 @@ public class PizzasListViewModel extends ViewModel {
      * default constructor
      */
     public PizzasListViewModel() {
-//        pizzas = new MutableLiveData<>();
-//        pizzas.setValue(Algorithm.createPizzaList());
-//        initAllPizzaPreselectionPostion();
     }
 
     /**

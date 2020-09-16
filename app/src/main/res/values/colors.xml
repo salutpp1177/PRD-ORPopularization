@@ -9,7 +9,7 @@
     <color name="colorUpsideWindowBorder">#8B4103</color>
     <color name="colorUndersideWindowBorder">#0769A7</color>
     <color name="colorPizzaItemBackground">#FCE8D5</color>
-    <color name="pizza0">#19A89B</color>
+    <color name="pizza0">#049A8C</color>
     <color name="pizza1">#F69531</color>
     <color name="pizza2">#59F8B4</color>
     <color name="pizza3">#59E9FD</color>
@@ -26,6 +26,8 @@
     <color name="buttonBackgroundBorder">#8B4103</color>
     <color name="buttonBackgroundHeart">#C35C04</color>
     <color name="word_color_tutorial">#60A917</color>
+    <color name="aboutus">#1DCEBE</color>
+
 
     <color name="black_overlay">#66000000</color>
 

@@ -280,10 +280,8 @@ public class MainActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, FirstPageActivity.class);
+                Intent intent = new Intent(MainActivity.this, MenuActivity.class);
                 startActivity(intent);
-//                intent.putExtra("pizzaslist2", (Serializable) pizzaList);
-//                startActivityForResult(intent, 2);
             }
         });
 
@@ -501,19 +499,6 @@ public class MainActivity extends AppCompatActivity {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(LocaleHelper.onAttach(base));
     }
-
-//    private void updateViews(String languageCode) {
-//        Context context = LocaleHelper.setLocale(this, languageCode);
-//        Resources resources = context.getResources();
-//
-//        mTitleTextView.setText(resources.getString(R.string.main_activity_title));
-//        mDescTextView.setText(resources.getString(R.string.main_activity_desc));
-//        mAboutTextView.setText(resources.getString(R.string.main_activity_about));
-//        mToTRButton.setText(resources.getString(R.string.main_activity_to_tr_button));
-//        mToENButton.setText(resources.getString(R.string.main_activity_to_en_button));
-//
-//        setTitle(resources.getString(R.string.main_activity_toolbar_title));
-//    }
 
 
     @Override

@@ -32,7 +32,6 @@ public class FirstPageActivity extends AppCompatActivity {
 
     Spinner spinner; // spinner to select the language
     Button playButton; // play button to enter into the game
-//    ArrayList<Pizza> pizzas; // pizzaslist
     ImageView univLogo; // an ImageView applying logo of University of Tours
     ImageView polytechLogo; // an ImageView applying logo of Polytech Tours
     ImageView lifatLogo; // an ImageView applying logo of LIFAT
@@ -94,10 +93,8 @@ public class FirstPageActivity extends AppCompatActivity {
             }
         });
 
-//        pizzas = new ArrayList<>();
-//        pizzas = (ArrayList<Pizza>)getIntent().getSerializableExtra("pizzaslist2");
 
-        // set play buttone
+        // set play button
         /**
          * click the play button, move to the game page
          */
@@ -105,11 +102,8 @@ public class FirstPageActivity extends AppCompatActivity {
         this.playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FirstPageActivity.this, MainActivity.class);
+                Intent intent = new Intent(FirstPageActivity.this, MenuActivity.class);
                 startActivity(intent);
-//                intent.putExtra("data_return2",(Serializable)pizzas);
-//                setResult(RESULT_OK, intent);
-//                finish();
             }
         });
 

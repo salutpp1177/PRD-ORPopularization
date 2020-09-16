@@ -37,16 +37,6 @@ public class Algorithm {
             int bak = 5*(random.nextInt(5)+1);
             pizzaList.add(new Pizza(i,pre,bak));
         }
-//        pizzaList.add(new Pizza(0, 5, 20));
-//        pizzaList.add(new Pizza(1, 10, 25));
-//        pizzaList.add(new Pizza(2, 20, 10));
-//        pizzaList.add(new Pizza(3, 10, 25));
-//        pizzaList.add(new Pizza(4, 15, 25));
-//        pizzaList.add(new Pizza(5, 25, 10));
-//        pizzaList.add(new Pizza(6, 20, 10));
-//        pizzaList.add(new Pizza(7, 15, 20));
-//        pizzaList.add(new Pizza(8, 5, 10));
-//        pizzaList.add(new Pizza(9, 20, 5));
         return pizzaList;
     }
 

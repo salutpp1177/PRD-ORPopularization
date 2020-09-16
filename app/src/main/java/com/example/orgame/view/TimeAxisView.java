@@ -75,8 +75,8 @@ public class TimeAxisView extends View {
                 if(i%2==0) {
                     canvas.drawText(String.format("%dh", i/2), i*600, 40, textPaint);
                 } else {
-                    double a = (double) i/2.0;
-                    canvas.drawText(String.format("%.1fh", a), i*600, 40, textPaint);
+                    int a = i/2;
+                    canvas.drawText(String.format("%dh30", a), i*600, 40, textPaint);
                 }
 
             }

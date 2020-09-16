@@ -24,7 +24,7 @@ import java.util.Objects;
 
 public class JohnsonTutorialActivity extends AppCompatActivity {
     // button
-    ImageButton JBackToGameButton;
+    ImageButton JBackToGameButton; // button to back to game
     ImageButton JMenuButton;
 
     // data
@@ -69,6 +69,7 @@ public class JohnsonTutorialActivity extends AppCompatActivity {
         tutorialFragmentPageAdapter = new TutorialFragmentPageAdapter(getSupportFragmentManager(), 0,fragments);
         viewPager.setAdapter(tutorialFragmentPageAdapter);
 
+        // swipe to before/next page
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -85,7 +86,6 @@ public class JohnsonTutorialActivity extends AppCompatActivity {
 
             }
         });
-
 
 
 

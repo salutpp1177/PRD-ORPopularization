@@ -27,22 +27,61 @@
         <item>Français</item>
         <item>English</item>
     </string-array>
+    <!--  strings in page tutorial johnson  -->
     <string name="tutorial_p1_s1">Regarde ! Tu as <b>4</b> pizzas à cuisiner !</string>
     <string name="tutorial_p1_s2">Comme nous le savons, il y a deux centres de travail :</string>
     <string name="tutorial_p1_s3">Ce que l\'on doit faire en premier est de classer ces pizzas en <font color='#F69531'><b>2</b></font> groupes, comme ceci :</string>
     <string name="tutorial_p2_s1"><font color='#60A917'><b>Ensuite </b></font>, nous devons trier chaque groupe <b>MAIS</b> dans un ordre différent.</string>
-    <string name="tutorial_p2_s2">Regarde le <font color='#094270'><b>Groupe 1</b></font>, nous devons nous concentrer sur leur\t</string>
-    <string name="tutorial_p2_w1">Temps de Préparation</string>
+    <string name="tutorial_p2_s2">Regarde le <font color='#094270'><b>Groupe 1</b></font>, nous le trions par \t</string>
+    <string name="tutorial_p2_w1">Temps de Préparation Croissant</string>
     <string name="tutorial_p2_s3">Ainsi nous les trions par ordre <font color='#60A917'><b>Croissant</b></font> du temps de préparation.</string>
-    <string name="tutorial_p3_s1"><font color='#60A917'><b>Ensuite </b></font>, nous devons trier le <font color='#094270'><b>Groupe 1</b></font> mais dans le sens <b>inverse</b>.</string>
+    <string name="tutorial_p3_s1"><font color='#60A917'><b>Ensuite </b></font>, nous devons trier le <font color='#094270'><b>Groupe 2</b></font> mais dans le sens <b>inverse</b>.</string>
     <string name="tutorial_p3_s2">Regarde le <b>Groupe 2</b>, nous devons nous concentrer sur leur </string>
     <string name="tutorial_p3_w1">Temps de Cuisson</string>
-    <string name="tutorial_p3_s3">Ainsi nous les trions par ordre <font color='#60A917'><b>Décroissant</b></font> du temps de cuisson.</string>
+    <string name="tutorial_p3_s3">Ainsi nous les trions par Temps de Cuisson <font color='#60A917'><b>Décroissant</b></font>.</string>
     <string name="tutorial_p4_s1">Pour finir, il suffit de <b>combiner</b> le Groupe 1 et le Groupe 2 triés.</string>
-    <string name="tutorial_p4_s2">Ainsi, le temps final de cuisine est :</string>
+    <string name="tutorial_p4_s2">Ainsi, le temps total de réalisation est :</string>
     <string name="tutorial_p4_s3">As-tu compris cet algorithme?</string>
     <string name="tutorial_p4_s4_a">Clique sur</string>
     <string name="tutorial_p4_s4_b">pour revenir au jeu,</string>
     <string name="tutorial_p4_s5_a">et tu verras une clé</string>
     <string name="tutorial_p4_s5_b">, clique dessus pour découvrir la meilleure solution !</string>
+    <!--    strings in page about us-->
+    <string name="aboutus"><b>À\nPROPOS</b></string>
+    <string name="aboutus_no_space"><b>À\t\tPROPOS</b></string>
+    <string name="aboutus_credits">Crédits</string>
+    <string name="aboutus_produce">Produit Par</string>
+    <string name="produce_p1">Version 0.0.0</string>
+    <string name="produce_p2">Cette application est protégée par les droits d\'auteur de l\’équipe Recherche Opérationnelle : Ordonnancement et Transport (<b><i>ROOT</i></b>) du Laboratoire d\'Informatique Fondamentale et Appliquée de Tours (<b><i>LIFAT</i></b>) à <font color='#00ADEF'><b>l\'École Polytechnique de l\’Université de Tours</b></font>, ainsi le droit d\'interprétation final.</string>
+    <string name="produce_p3">Encadré Par : ROBBES Alexis (<font color='#0F5BEB'><u>alexis.robbes@univ-tours.fr</u></font>), CHEVROTON Hugo (<font color='#0F5BEB'><u>hugo.chevroton@univ-tours.fr</u></font>)</string>
+    <string name="produce_p4">Producteur d\'Application: JIANG Yaqi (<font color='#0F5BEB'><u>jiang.yaqi@foxmail.com</u></font>)</string>
+    <string name="produce_p5">Temps de Première Production: Avril 2020 </string>
+    <string name="produce_p6">Cet application a été proposé par M. ROBBES Alexis et M. CHEVROTON Hugo, ainsi le projet Recherche \u0026 Développement pour JIANG Yaqi, étudiante en cinquième année pendant 2019-2020 à <b>l\’École Polytechnique de l\’Université de Tours</b>.</string>
+    <string name="produce_p7">Cette application est <font color ='#F82828'><b>uniquement</b></font> appliquée à l’éducation ou à la recherche scientifique pour <b>l\'École Polytechnique de l\'Université de Tours</b>, qui est <font color='#F82828'><b>interdite</b></font>pour aucun usage privé commerciale, ainsi que <font color='#F82828'><b>interdite</b></font> de copier nos idées.</string>
+    <string name="produce_p8">Merci de  votre intérêt à notre application.<i>Si vous avez des questions ou des suggestions, veuillez nous contacter par mail.</i></string>
+    <string name="credit_p1">Il y a des icônes appliquées dans l\'application via <font color='#0F5BEB'><b>www.flaticon.com</b></font></string>
+    <string name="credit_p2"><font color='#8B4103'><b>Page de Menu</b></font>: </string>
+    <string name="credit_p3">Drapeau Anglais, Drapeau Français: tout sont fabriquées par <b>Freepik</b> via <font color='#0F5BEB'><b><u>www.flaticon.com</u></b></font></string>
+    <string name="credit_p4"><font color='#8B4103'><b>Page de jeu de FlowShop-Pizza </b></font>: </string>
+    <string name="credit_p5">Oven, Tomate (sur la planche), Cheese (sur la planche), key, Open-Book, Menu : tout sont fabriquées par <b>Freepik</b> from <font color='#0F5BEB'><b><u>www.flaticon.com</u></b></font> \nPizza (sur la planche) : Icône fabriquée par <b>xnimrodx</b> via <font color='#0F5BEB'><b><u>www.flaticon.com</u></b></font> \nAlarm: Icône fabriquée par <b>itim2101</b> from <font color='#0F5BEB'><b><u>www.flaticon.com</u></b></font>\nCheck: Icône fabriquée par <b>Kiranshastry</b> via <font color='#0F5BEB'><b><u>www.flaticon.com</u></b></font></string>
+    <string name="credit_p6"><font color='#8B4103'><b>Page pour Tutoriel de Algorithme de Johnson </b></font>: </string>
+    <string name="credit_p7">Right-arrow: Icône fabriquée par <b>smashicons</b> via <font color='#0F5BEB'><b><u>www.flaticon.com</u></b></font> \nConfused: Icône fabriquée par <b>Freepik</b> via <font color='#0F5BEB'><b><u>www.flaticon.com</u></b></font></string>
+    <string name="credit_p00">Il y a des icônes faites par nous-mêmes.</string>
+    <string name="credit_p01">Logo de l\'application : designée et fabriquée par <b>JIANG Yaqi</b>. \nNew-Game, Title-Board (Flowshop-pizza) : tout sont fabriquées par <b>JIANG Yaqi</b>.</string>
+    <!--    strings in page introduction-->
+    <string name="intro_tabitem1">Recherche\nOpérationnelle</string>
+    <string name="intro_tabitem2">Polytech\nTours</string>
+    <string name="intro_tabitem3">LIFAT</string>
+    <string name="intro_or_p0"><font color='#049A8C'><b>La Recherche Opérationnelle</b></font> (RO) est une méthode analytique de résolution de problème et de prise de décision utile dans la gestion des organisations. Dans la recherche opérationnelle, les problèmes sont décomposés en composants de base, puis résolus par des étapes définies par une analyse mathématique. Par exemple, le problème du <b>sac à dos</b> (en anglais, Knapsack problem) modélise une situation analogue de remplissage d\’un sac à dos. Le sac ne peut pas supporter plus d\’un certain poids. Ce sac est rempli avec tout ou partie d\’un ensemble donné d\’objets ayant chacun un poids et une valeur. La somme des objets mis dans le sac à dos doit être la plus grande possible, sans dépasser le poids maximum autorisé. Une application pourrait inviter les gens à faire découvrir la recherche opérationnelle, et les aider mieux comprendre la définition et les méthodes de résolution utilisées dans cette discipline.</string>
+    <string name="intro_or_title1"><font color='#8B4103'><b>Théorie de l\'ordonnancement : </b></font></string>
+    <string name="intro_or_content1">La théorie de l\’ordonnancement est une branche de la recherche opérationnelle qui s\’intéresse au calcul de dates d\’exécution optimales de tâches. Pour cela, il est très souvent nécessaire d’affecter en même temps les ressources nécessaires à l\’exécution de ces tâches. Un problème d’ordonnancement peut être considéré comme un sous-problème de planification dans lequel il s\’agit de décider de l\’exécution opérationnelle des tâches planifiées.\nLe <b>flow-shop</b>, Le flow-shop est un problème de la théorie de l\'ordonnancement, un domaine de la recherche opérationnelle et de l\'algorithmique. Il définit un ensemble de <b>n</b> tâches et <b>m</b> machines. En général, on cherche des solutions telles que les tâches ne peuvent pas se doubler, elles passent dans le même ordre sur toutes les machines, c\'est ce qu\'on appelle flowshop de permutation. \n(via <font color='#0F5BEB'><b><u>https://fr.wikipedia.org/wiki/Flow-shop</u></b></font>)</string>
+    <string name="intro_polytech_p1"><font color='#049A8C'><b>Université de Tours</b></font>, est une université résolument européenne qui a mis en place une campagne d\'actions dans le cadre de la stratégie Europe 2020. A travers ses missions d\'enseignement supérieur et de recherche, <b>l\'Université de Tours</b> joue un rôle clé dans la recherche, le développement et le renforcement des capacités scientifiques, culturelles et professionnelles du plus grand nombre de personnes. \n<font color='#8B4103'><b>Website : </b></font> <u>https://www.univ-tours.fr</u></string>
+    <string name="intro_polytech_p2"><font color='#00ADEF'><b>Polytech Tours</b></font>, (<u><i>École Polytechnique de l\’Université de Tours</i></u>) est une grande école d\'ingénieur de l\’<b>Université de Tours</b>, ainsi fait partie du <b>réseau Polytech</b>, groupement de quinze écoles d\'ingénieur au sein des universités. Le <b>réseau Polytech</b> est un réseau de 14 écoles d\'ingénieurs des universités françaises qui diplôment chaque année plus de 3 000 ingénieurs. Cela fait du réseau Polytech le plus grand réseau d\'écoles d\'ingénieurs diplômés en France. \n<b> Polytech Tours </b> propose cinq spécialités d\'ingénieur:Électronique et génie électrique Génie de l\'aménagement et de l\'environnement, Informatique, Mécanique et conception des systèmes et Informatique industrielle.  Et elle accueille 270 étudiants en cours préparatoire, 850 étudiants en spécialités d\'ingénieurs et 90 étudiants en doctorat. \n(via <font color='#0F5BEB'><b><u>https://polytech.univ-tours.fr</u></b></font>) \n<font color='#8B4103'><b>Website : </b></font> <u>https://polytech.univ-tours.fr</u></string>
+    <string name="lifat_p1"><font color='#008577'><b>LIFAT</b></font>, <b>Laboratoire d\’Informatique Fondamentale et Appliquée de Tours</b>, Il y a 48 professeurs (professeurs, professeurs assistants), 25 doctorants, 7 doctorants post-doctorants au Laboratoire d\'informatique fondamentale et appliquée de Tours. Et le laboratoire est actuellement organisé en trois groupes de recherche: Recherche Opérationnelle : Ordonnancement et Transport (ROOT), Reconnaissance des formes et analyse d\'images (RFAI) et Bases de données et Traitement des langues naturelles (BdTln). </string>
+    <string name="lifat_p2"><font color='#0769A7'><b>ROOT : </b></font> <u>l\'Équipe de Recherche Opérationnelle : Ordonnancement et Transport</u> \nElle a été fondée en 1986 sous le nom de «Ordonnancement et Conduite» (OC). Aujourd\’hui, les principaux intérêts de recherche de l\’équipe sont la conception, le développement et l\’application de techniques de recherche opérationnelle à: la production et la planification et l’ordonnancement de projets, le calcul haute performance et le Big Data, ainsi que la science et la logistique des transports. L\'équipe met un accent particulier sur les approches multi-agents, multi-objectifs, stochastiques et robustes. <b>ROOT</b> regroupe 12 facultés, 8 doctorats. étudiants, 2 post-doctorants et un certain nombre d’étudiants à la maîtrise qui mènent des recherches de haute qualité et de renommée internationale. \n(via <font color='#0F5BEB'><b><u>https://lifat.univ-tours.fr/lifat-english-version/teams/root</u></b></font>) </string>
+    <string name="lifat_p3"><font color='#0769A7'><b>RFAI : </b></font> <u>l\'Équipe de Reconnaissance des formes et analyse d\'images</u> \nElle se concentre sur l\'apprentissage automatique, l\'exploration de données et le traitement d\'images. Il mène des recherches sur des méthodes permettant de construire et d\'exploiter des représentations de haut niveau sémantique à partir de différentes données d\'entrée. \n(via <font color='#0F5BEB'><b><u>http://www.rfai.lifat.univ-tours.fr</u></b></font>) </string>
+    <string name="lifat_p4"><font color='#0769A7'><b>BdTln : </b></font> <u>l\'Équipe de Bases de données et Traitement des langues naturelles\n</u> \nElle supervise une grande variété de défis concernant les données non structurées, semi-structurées et structurées. L\'équipe est composée de 4 professeurs titulaires, 11 professeurs associés (4 ayant une Habilitation à diriger des recherches) et 7 doctorants. \n(via <font color='#0F5BEB'><b><u>https://lifat.univ-tours.fr/lifat-english-version/teams/bdtin</u></b></font>) </string>
+
+
+
 </resources>

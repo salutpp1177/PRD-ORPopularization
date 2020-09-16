@@ -35,7 +35,8 @@
         android:background="@drawable/button_background"
         android:clickable="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_speaker_notes_black_24dp" />
+        android:src="@drawable/ic_speaker_notes_black_24dp"
+        android:visibility="invisible"/>
 
 
 </LinearLayout>

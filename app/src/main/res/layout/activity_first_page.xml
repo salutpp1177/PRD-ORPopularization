@@ -2,10 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_frist_page"
+    android:id="@+id/activity_frist_page_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/first_page_background"
     tools:context=".activity.FirstPageActivity">
 
     <TextView
@@ -16,6 +15,7 @@
         android:text="@string/firstpage_welcome"
         android:textColor="@color/welcome_string"
         android:textSize="45sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -31,6 +31,7 @@
         android:text="@string/firstpage_research"
         android:textColor="@color/research_string"
         android:textSize="35sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -46,6 +47,7 @@
         android:text="@string/firstpage_operation"
         android:textColor="@color/operation_string"
         android:textSize="35sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/fgguidelinecenter"
         app:layout_constraintHorizontal_bias="1.0"
@@ -61,6 +63,7 @@
         android:text="@string/firstpage_to"
         android:textColor="@color/world_string"
         android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.463"
@@ -95,14 +98,13 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/background_play_button"
         android:scrollbarSize="4dp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/fgguideline2"
         app:layout_constraintEnd_toEndOf="@+id/play_button"
         app:layout_constraintEnd_toStartOf="@+id/fgguidelineb"
         app:layout_constraintStart_toStartOf="@+id/fgguidelinea"
         app:layout_constraintTop_toBottomOf="@+id/play_button"
-        app:layout_constraintVertical_bias="0.120000005"
-        android:textAlignment="center"
-        />
+        app:layout_constraintVertical_bias="0.120000005" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fgguideline1"
@@ -164,39 +166,36 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="120dp"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/fgguideline2"
         app:layout_constraintEnd_toStartOf="@+id/fgguidelinea"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/fgguideline1"
-        app:srcCompat="@drawable/university_logo"
-        android:clickable="true"
-        />
+        app:srcCompat="@drawable/university_logo" />
 
     <ImageView
         android:id="@+id/first_page_polylogo"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/fgguideline2"
         app:layout_constraintEnd_toStartOf="@+id/fgguidelineb"
         app:layout_constraintStart_toStartOf="@+id/fgguidelinea"
         app:layout_constraintTop_toTopOf="@+id/fgguideline1"
-        app:srcCompat="@drawable/polytech_blue_logo"
-        android:clickable="true"
-        />
+        app:srcCompat="@drawable/polytech_blue_logo" />
 
     <ImageView
         android:id="@+id/first_page_lifatlogo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="160dp"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/fgguideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/fgguidelineb"
         app:layout_constraintTop_toTopOf="@+id/fgguideline1"
-        app:srcCompat="@drawable/lifat_logo"
-        android:clickable="true"
-        />
+        app:srcCompat="@drawable/lifat_logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
